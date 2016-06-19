@@ -26,6 +26,7 @@ initialize_geo = function (callback) {
     clear_bubble();
     user_name.textContent = window.localStorage.getItem("userName");
     user_name2.textContent = window.localStorage.getItem("userName")
+
  },
     
 
@@ -111,6 +112,7 @@ set_address = function (addy) {
 	init = function () {
    google.maps.event.addDomListener(window, "load", initialize_geo(get_user_position));
    //chat_button.addEventListener("click", replace_comment_sec);
+   alert("we are the only two people in the world");
 	};
 
 	return {

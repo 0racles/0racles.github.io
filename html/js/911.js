@@ -267,7 +267,7 @@ get_local_Storage = function  () {
         },
 
 test_see = function () {
-  
+  alert("he will never yield father");
 },
 
 	init = function () {
