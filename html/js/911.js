@@ -24,7 +24,7 @@ pic_file = document.getElementById("pic_file"),
 target =document.querySelectorAll(".target")[0],
 replay = forms[2].getElementsByTagName("a")[0].firstElementChild,
 mic = forms[2].getElementsByTagName("a")[0].lastElementChild,
-//xhr = new XMLHttpRequest(),
+xhr = new XMLHttpRequest(),
 img = '<img accept="image/*">',
 //mic = document.querySelectorAll(".mic")[0],
 open_settings,
@@ -245,7 +245,7 @@ get_local_Storage = function  () {
       }
 
       saveButton.onclick = function (e) {
-        xhr = new XMLHttpRequest();
+        //xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation?appId=NMDPTRIAL_generateauto44_gmail_com20160426151757&appKey=f0eaf19611476789164f28566790a97b416c70fcd8c5fb04f6e84c6be49412d47e036a8f4ad118612141b788d1610412cd740ea63909aa2ff1f69ad68badaa09&id=57349abd2390', true);
         //xhr.setRequestHeader('Transfer-Encoding: chunked', 'Content-Type: audio/x-pcm;bit=16;rate=8000', 'Accept: text/plain'
 //, 'Accept-Language: en-US');
