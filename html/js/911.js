@@ -43,6 +43,16 @@ storedData,
 chunks = [],
 // dropdown for microphone settings
 
+initiate_sw =function () {
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/html/911.js', {scope : '/html/'}).then(function (reg) {
+    console.log("you have succesfully registered. Scope is " + reg.scope);
+  }).catch(function(error) { 
+    console.log('Registration failed with ' + error);
+   }); 
+ }
+},
+
 open_settings = function() {
    autorized.classList.remove("none");
    //gogo.classList.remove("none");
@@ -236,10 +246,10 @@ get_local_Storage = function  () {
 
       saveButton.onclick = function (e) {
         xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation?appId=NMAID_FOO&appKey=525348e77144a9cee9a7471a8b67c50ea85b9e3eb377a3c2a3a23dc88f9150eefe76e6a339fdbc62b817595f53d72549d9ebe36438f8c2619846b963e9f43a93&id=57349abd2390', true);
+        xhr.open('GET', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation?appId=NMDPTRIAL_generateauto44_gmail_com20160426151757&appKey=f0eaf19611476789164f28566790a97b416c70fcd8c5fb04f6e84c6be49412d47e036a8f4ad118612141b788d1610412cd740ea63909aa2ff1f69ad68badaa09&id=57349abd2390', true);
         //xhr.setRequestHeader('Transfer-Encoding: chunked', 'Content-Type: audio/x-pcm;bit=16;rate=8000', 'Accept: text/plain'
 //, 'Accept-Language: en-US');
-        xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://dictation.nuancemobility.net');
+        xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation');
         xhr.setRequestHeader('Transfer-Encoding', 'chunked');
         xhr.setRequestHeader('Content-Type', 'audio/x-pcm;bit=16;rate=8000');
         xhr.setRequestHeader('Accept', 'text/plain');
@@ -267,7 +277,7 @@ get_local_Storage = function  () {
         },
 
 test_see = function () {
-  alert("he will never yield father");
+
 },
 
 	init = function () {
@@ -287,6 +297,7 @@ test_see = function () {
     mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
+    initiate_sw();
 	};
 
 	return {
