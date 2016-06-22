@@ -47,13 +47,6 @@ initiate_sw =function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
-    this.addEventListener("install", function (event) {
-      event.waitUntil(
-        caches.open('v1').then(function (cache) {
-          cache.addAll(['/html/', '/html/img/trapped_lady.jpg', '/html/img/screaming.jpg', '/html/img/location4.jpg', '/html/img/embrace3.jpg']);
-        })
-        );
-    });
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
