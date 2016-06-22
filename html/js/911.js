@@ -45,7 +45,7 @@ chunks = [],
 
 initiate_sw =function () {
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
+  navigator.serviceWorkerContainer.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
