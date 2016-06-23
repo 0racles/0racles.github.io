@@ -16,4 +16,4 @@ this.addEventListener("install", function (event) {
 
 this.addEventListener("fetch", function (event) {
 	event.respondWith(new response(alert('this is how the game goes'));
-});   
+}));   
