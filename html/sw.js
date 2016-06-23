@@ -6,9 +6,9 @@ this.addEventListener("install", function (event) {
           	'/html/img/trapped_lady.jpg', 
           	'/html/img/screaming.jpg', 
           	'/html/img/location4.jpg', 
-          	'/html/img/embrace3.jpg',
-          	'/html/img/bg.jpg',
-          	'/html/img/timer.png'
+          	'/html/img/embrace3.jpg'
+          	//'/html/img/bg.jpg',
+          	//'/html/img/timer.png'
           	]);
         })
         );
