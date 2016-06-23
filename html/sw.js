@@ -3,6 +3,7 @@ this.addEventListener("install", function (event) {
       event.waitUntil(
         caches.open('v1').then(function (cache) {
           cache.addAll(['/html/', 
+            '/html/index.html',
           	'/html/img/trapped_lady.jpg', 
           	'/html/img/screaming.jpg', 
           	'/html/img/location4.jpg', 
