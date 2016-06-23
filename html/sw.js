@@ -15,5 +15,5 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('fetch', function (event) {
-	event.respondWith(new response('<p>Hello from your friendly neighbourhood servce worker</p>'))
+	event.respondWith(new Response('<p>Hello from your friendly neighbourhood servce worker</p>'))
 });   
