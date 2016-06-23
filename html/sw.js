@@ -7,13 +7,13 @@ this.addEventListener("install", function (event) {
           	'/html/img/screaming.jpg', 
           	'/html/img/location4.jpg', 
           	'/html/img/embrace3.jpg'
-          	//'/html/img/bg.jpg',
-          	//'/html/img/timer.png'
+          	'/html/img/bg.jpg',
+          	'/html/img/timer.png'
           	]);
         })
         );
     });
 
 this.addEventListener('fetch', function (event) {
-	event.respondWith(new Response('<p>Hello from your friendly neighbourhood servce worker</p>'))
+	event.respondWith(caches.match(event.request))
 });   
