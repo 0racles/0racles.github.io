@@ -14,7 +14,7 @@ this.addEventListener("install", function (event) {
         );
     })
 
-/*this.addEventListener("fetch", function (event) {
+this.addEventListener("fetch", function (event) {
 	event.respondWith(
-    caches.match(event.request));
+    new response(alert('this is how the game goes'));
 });*/    
