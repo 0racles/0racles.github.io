@@ -4,9 +4,9 @@ this.addEventListener("install", function (event) {
         caches.open('v2').then(function (cache) {
          return cache.addAll(['/html/', 
             '/html/index.html',
-            'html/js/',
-            'html/js/911.js',
-            'html/img/',
+            '/html/js/',
+            '/html/js/911.js',
+            '/html/img/',
           	'/html/img/trapped_lady.jpg', 
           	'/html/img/screaming.jpg', 
           	'/html/img/location4.jpg', 
