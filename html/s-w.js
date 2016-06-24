@@ -19,6 +19,6 @@ this.addEventListener("install", function (event) {
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
     //caches.match(event.request)
-    new Response(alert('iwill never out-grow the thirill of xmas day'))
+    new Response(alert('<p>I am sprry. I aint thinking about little finger up</p>')
     );
 });
