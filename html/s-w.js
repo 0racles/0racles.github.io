@@ -7,7 +7,7 @@ this.addEventListener("install", function (event) {
             'html/js/',
             'html/js/911.js',
             'html/img/',
-          	'/html/img/trapped_lafhdy.jpg', 
+          	'/html/img/trapped_lady.jpg', 
           	'/html/img/screaming.jpg', 
           	'/html/img/location4.jpg', 
           	'/html/img/embrace3.jpg'
