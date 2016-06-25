@@ -3,7 +3,6 @@ importScripts('serviceworker-cache-polyfill.js');
 
 this.addEventListener("install", function (event) {
       event.waitUntil(
-        console.log('this installation is working');
         caches.open('v3').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html', 
