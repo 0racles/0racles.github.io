@@ -43,15 +43,15 @@ storedData,
 chunks = [],
 // dropdown for microphone settings
 
-/*initiate_sw =function () {
+initiate_sw =function () {
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
+  navigator.serviceWorker.register('/html/serviceworker.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
   }).catch(function(error) { 
     console.log('Registration failed with the ' + error);
    }); 
  }
-},*/
+},
 
 open_settings = function() {
    autorized.classList.remove("none");
@@ -297,7 +297,7 @@ test_see = function () {
     mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
-    //initiate_sw();
+    initiate_sw();
 	};
 
 	return {
