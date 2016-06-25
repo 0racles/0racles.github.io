@@ -3,12 +3,11 @@ importScripts('serviceworker-cache-polyfill.js');
 
 this.addEventListener("install", function (event) {
       event.waitUntil(
-        caches.open('v2').then(function (cache) {
+        console.log('this installation is working');
+        caches.open('v3').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html', 
-          '/html/js/', 
           '/html/js/911.js', 
-          '/html/img/', 
           '/html/img/trapped_lady.jpg', 
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
@@ -17,6 +16,20 @@ this.addEventListener("install", function (event) {
         })
         );
     });
+
+this.addEventListener('activate', function(event) {
+  var cacheWhitelist = ['v2'];
+
+  event.waitUntil(
+    caches.keys().then(function(keyList) {
+      return Promise.all(keyList.map(function(key) {
+        if (cacheWhitelist.indexOf(key) === -1) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
+});
 
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
