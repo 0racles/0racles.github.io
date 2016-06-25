@@ -2,7 +2,7 @@
 this.addEventListener("install", function (event) {
       event.waitUntil(
         caches.open('v3').then(function (cache) {
-         return cache.addAll(['/html/', 
+          cache.addAll(['/html/', 
           '/html/img/trapped_lady.jpg', 
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
