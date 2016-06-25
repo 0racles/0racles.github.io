@@ -1,6 +1,3 @@
-importScripts('serviceworker-cache-polyfill.js');
-
-
 this.addEventListener("install", function (event) {
       event.waitUntil(
         caches.open('v3').then(function (cache) {
