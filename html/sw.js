@@ -1,18 +1,14 @@
 this.addEventListener("install", function (event) {
       self.skipWaiting(
         caches.open('v2').then(function (cache) {
-         return cache.addAll(/*['/html/', 
+         return cache.addAll(['/html/', 
           '/html/index.html',
-          '/html/js/',
           '/html/js/911.js', 
-          '/html/img/',
           '/html/img/trapped_lady.jpg', 
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg'
-          ]*/
-          new Request ('ping to you')
-          );
+          ]);
         })
         );
     });
@@ -35,6 +31,6 @@ this.addEventListener('activate', function(event) {
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
     /*caches.match(event.request)*/
-    new Response ('pong me back you crazy motherfucker')
+    new Response (event.request.url)
     );
 });
