@@ -31,6 +31,6 @@ this.addEventListener('activate', function(event) {
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
     /*caches.match(event.request)*/
-    new Response (event.request.url)
+    new Response (event.request.headers)
     );
 });
