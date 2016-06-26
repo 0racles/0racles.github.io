@@ -35,6 +35,6 @@ this.addEventListener('activate', function(event) {
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
     /*caches.match(event.request)*/
-    new Response ('pong me back motherfucker')
+    new Response ('pong me back you crazy motherfucker')
     );
 });
