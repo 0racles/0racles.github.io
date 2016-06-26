@@ -4,6 +4,21 @@ this.addEventListener("install", function (event) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/js/911.js', 
+          '/html/img/trapped_lady.jpg', 
+          '/html/img/screaming.jpg', 
+          '/html/img/location4.jpg', 
+          '/html/img/embrace3.jpg'
+          ]);
+        })
+        );
+    });
+
+this.addEventListener("install", function (event) {
+      event.waitUntil(
+        caches.open('v2').then(function (cache) {
+         return cache.addAll(['/html/', 
+          '/html/index.html',
+          '/html/js/911.js', 
           '/html/css/adaptive.css',
           '//html/css/animate.css',
           '/html/css/bootstrap.css',
