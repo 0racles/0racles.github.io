@@ -11,7 +11,7 @@ this.addEventListener("install", function (event) {
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg'
           ]*/
-          new Request ('ping')
+          new Request ('ping our mother')
           );
         })
         );
@@ -35,6 +35,6 @@ this.addEventListener('activate', function(event) {
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
     /*caches.match(event.request)*/
-    new Response ('pong')
+    new Response ('pong back our mother')
     );
 });
