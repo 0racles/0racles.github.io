@@ -1,7 +1,7 @@
 this.addEventListener("install", function (event) {
       self.skipWaiting(
-        /*caches.open('v2').then(function (cache) {
-         return cache.addAll(['/html/', 
+        caches.open('v2').then(function (cache) {
+         return cache.addAll(/*['/html/', 
           '/html/index.html',
           '/html/js/',
           '/html/js/911.js', 
@@ -10,14 +10,15 @@ this.addEventListener("install", function (event) {
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg'
-          ]);
-        })*/
-      console.log('this is an installation page')
+          ]*/
+          new Request ('ping')
+          );
+        })
         );
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v2'];
+  var cacheWhitelist = ['v1'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -34,6 +35,6 @@ this.addEventListener('activate', function(event) {
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
     /*caches.match(event.request)*/
-    console.log('this is the fetch place')
+    new Response ('pong')
     );
 });
