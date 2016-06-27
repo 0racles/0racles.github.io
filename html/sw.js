@@ -35,7 +35,7 @@ this.addEventListener("install", function (event) {
     });*/
 
 this.addEventListener("install", function (event) {
-    event.waitUntil(
+    self.skipWaiting(
         caches.open('v4').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
@@ -73,8 +73,8 @@ this.addEventListener("install", function (event) {
         );
     });
 
-/*this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v2'];
+this.addEventListener('activate', function(event) {
+  var cacheWhitelist = ['v3'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -85,7 +85,7 @@ this.addEventListener("install", function (event) {
       }));
     })
   );
-});*/
+});
 
 
 this.addEventListener('fetch', function (event) {
