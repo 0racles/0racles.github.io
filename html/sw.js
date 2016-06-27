@@ -35,7 +35,7 @@ this.addEventListener("install", function (event) {
     });*/
 
 this.addEventListener("install", function (event) {
-      self.skipWaiting(
+    event.waitUntil(
         caches.open('v3').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
