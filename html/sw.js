@@ -63,11 +63,11 @@ this.addEventListener("install", function (event) {
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg',
           '/html/img/start/bg.jpg',
-          '/html/font/fontawesome-webfont.woff',
-          '/html/font/fontawesome-webfont.woff2',
-          '/html/rs-plugin/font/revicons.woff',
-          '/html/rs-plugin/font/revicons.ttf',
-          '/html/font/fontawesome-webfont.ttf'
+          '/html/font/fontawesome-webfont.woff?v=4.3.0',
+          '/html/font/fontawesome-webfont.woff2?v=4.3.0',
+          '/html/rs-plugin/font/revicons.woff?5510888',
+          '/html/rs-plugin/font/revicons.ttf?5510888',
+          '/html/font/fontawesome-webfont.ttf?v=4.3.0'
           ]);
         })
         );
