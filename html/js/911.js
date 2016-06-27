@@ -277,7 +277,7 @@ get_local_Storage = function  () {
         },
 
 test_see = function () {
-  alert("you fucnking suckers better get a hang of it, and tell me the truth");
+  alert("i am loving service workers, now in v7");
 },
 
 	init = function () {
