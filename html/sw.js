@@ -62,7 +62,12 @@ this.addEventListener("install", function (event) {
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg',
-          '/html/img/start/bg.jpg'
+          '/html/img/start/bg.jpg',
+          '/html/font/fontawesome-webfont.woff',
+          '/html/font/fontawesome-webfont.woff2',
+          '/html/rs-plugin/font/revicons.woff',
+          '/html/rs-plugin/font/revicons.ttf',
+          '/html/font/fontawesome-webfont.ttf'
           ]);
         })
         );
