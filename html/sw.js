@@ -55,21 +55,20 @@ this.addEventListener("install", function (event) {
           '/html/img/trapped_lady.jpg', 
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
-          '/html/img/embrace3.jpg,'
+          '/html/img/embrace3.jpg',
           '/html/img/start/bg.jpg',
           '/html/fontawesome-webfont.eot',
           '/html/fontawesome-webfont.svg',
           '/html/fontawesome-webfont.ttf',
           '/html/fontawesome-webfont.woff',
-          '/html/fontawesome-webfront.woff2',
-          '/html/FontAwesome-webfront.otf'
+          '/html/fontawesome-webfont.woff2',
+          '/html/FontAwesome-webfont.otf'
           ]);
         })
         );
     });
 
-
-this.addEventListener('activate', function(event) {
+/*this.addEventListener('activate', function(event) {
   var cacheWhitelist = ['v2'];
 
   event.waitUntil(
@@ -81,7 +80,7 @@ this.addEventListener('activate', function(event) {
       }));
     })
   );
-});
+});*/
 
 
 this.addEventListener('fetch', function (event) {
