@@ -36,7 +36,7 @@ this.addEventListener("install", function (event) {
 
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v6').then(function (cache) {
+        caches.open('v7').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/emergency.html',
@@ -74,7 +74,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v6'];
+  var cacheWhitelist = ['v7'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {

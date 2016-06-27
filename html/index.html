@@ -27,7 +27,7 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body class="promo">
+<body onload="initialize()" class="promo">
 
 <!--user Profile-->
 <div class="add_place none" id="autorized">
@@ -76,10 +76,10 @@
 <div class="place_form">
 <i class="fa fa-times close_window" id="close"></i>
 <h3>Invite Friends<span></span></h3>
-   <form>
+   <form id="form4">
     <div class="avataro"><span class="big"><i class="fa fa-users big play"></i></span></div>
-        <span href="#" class ="inline back"><i class="fa fa-hand-o-left back" title="back"></i> <a href="emergency.html"><i class="fa fa-thumbs-o-up" title="done"></i></a></span>
-       <a href="#" class="green_btn_header inline" ><i class="fa fa-folder-open-o" id="upload_conatact" title="existing contacts"></i> <i class="fa fa-envelope" id="send_invites" title="compose"></i></a>
+   <a href="#" class ="inline back"><i class="fa fa-hand-o-left back" id="one" title="back"></i> <i class="fa fa-thumbs-o-up done" id="two" title="done"></i></a>
+      <a href="#" class="green_btn_header inline" ><i class="fa fa-folder-open-o" id="invite_contact" title="existing contacts"></i> <i class="fa fa-envelope" id="send_invites" title="compose"></i></a>
    </form>
    </div>
 </div>
@@ -374,7 +374,7 @@ data-easing="Power4.easeOut">
 - SCRIPT FILES -
 #################################
 -->
-<!--Google maps API linl--
+<!--Google maps API linl-->
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs"></script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -384,7 +384,7 @@ data-easing="Power4.easeOut">
 <script src="js/all_scr.js"></script>
 <!--Bootstrap js-->  
 <script src="js/bootstrap.min.js"></script>
-<!--Map js--
+<!--Map js-->
 <script type="text/javascript" src="js/map_index.js"></script>
 <script type="text/javascript" src="js/infobox.js"></script>
 <!--Slider Revolution-->

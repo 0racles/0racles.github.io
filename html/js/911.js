@@ -4,6 +4,7 @@ i=0,
 autorized = document.getElementById("autorized"),
 autorized2 = document.getElementById("autorized2"),
 autorized3 = document.getElementById("autorized3"),
+autorized4 = document.getElementById("autorized4"),
 validate1 = document.getElementById("validate1"),
 validate2 =document.getElementById("validate2"),
 play =document.querySelectorAll(".play"),
@@ -18,7 +19,7 @@ back = document.querySelectorAll(".back"),
 avataro = document.querySelectorAll(".avataro")[0],
 head = document.getElementById("head"),
 send_invite = document.getElementById("send_invites"),
-upload_conatact = document.getElementById("upload_conatact"),
+invite_contact = document.getElementById("invite_contact"),
 form = document.querySelectorAll(".form")[0],
 pic_file = document.getElementById("pic_file"),
 target =document.querySelectorAll(".target")[0],
@@ -26,6 +27,7 @@ replay = forms[2].getElementsByTagName("a")[0].firstElementChild,
 mic = forms[2].getElementsByTagName("a")[0].lastElementChild,
 xhr = new XMLHttpRequest(),
 img = '<img accept="image/*">',
+body = document.body,
 //mic = document.querySelectorAll(".mic")[0],
 open_settings,
 perform_validation,
@@ -48,7 +50,7 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
   }).catch(function(error) { 
-    console.log('Registration failed with the ' + error);
+    console.log('Registration failed with ' + error);
    }); 
  }
 },
@@ -246,10 +248,10 @@ get_local_Storage = function  () {
 
       saveButton.onclick = function (e) {
         //xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation?appId=NMDPTRIAL_generateauto44_gmail_com20160426151757&appKey=f0eaf19611476789164f28566790a97b416c70fcd8c5fb04f6e84c6be49412d47e036a8f4ad118612141b788d1610412cd740ea63909aa2ff1f69ad68badaa09&id=57349abd2390', true);
+        xhr.open('POST', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation?appId=NMAID_FOO&appKey=525348e77144a9cee9a7471a8b67c50ea85b9e3eb377a3c2a3a23dc88f9150eefe76e6a339fdbc62b817595f53d72549d9ebe36438f8c2619846b963e9f43a93&id=57349abd2390', true);
         //xhr.setRequestHeader('Transfer-Encoding: chunked', 'Content-Type: audio/x-pcm;bit=16;rate=8000', 'Accept: text/plain'
 //, 'Accept-Language: en-US');
-        xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://dictation.nuancemobility.net/NMDPAsrCmdServlet/dictation');
+        xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://dictation.nuancemobility.net');
         xhr.setRequestHeader('Transfer-Encoding', 'chunked');
         xhr.setRequestHeader('Content-Type', 'audio/x-pcm;bit=16;rate=8000');
         xhr.setRequestHeader('Accept', 'text/plain');
@@ -276,20 +278,67 @@ get_local_Storage = function  () {
       }
         },
 
-test_see = function () {
-  alert("i am loving service workers, now in v7");
+invite_contact_func = function () {
+  form_modal = autorized4.getElementsByTagName('form')[0];
+  form_childs = form_modal.children;
+  for (var i = 0; i < form_childs.length; i++) {
+    form_modal.removeChild(form_childs[i]);
+  }
+  console.log(form_modal.children.length);
+  form_modal.classList.add("loading");
+  setTimeout(compose_msg(form_modal), 10000);
+}
+
+compose_msg = function (x) {
+  if (x.children.length === 1) {
+  autorized4.getElementsByTagName('h3')[0].textContent = 'Compose';
+  x.classList.remove("loading");
+  el_obj = {
+  textarea : "<textarea class='text_area' placeholder='write message here....'></textarea>",
+  well_done : "<span class='fa fa-thumbs-o-up' style='color:green;font-size:40px;font-weight:500;position:absolute;left:40%;'></span><br><br><p class='container page_info_2' id='take_text' style='text-align:center;'>Message succesfully sent</p>",
+  button1 : "<a href='#' class='butt' style='text-decoration : none;' onclick='success_msg()' id='first_btn'>send</a>",
+ button2 : "<a href='emergency.html' class='btn btn-primary' style='text-decoration : none;' onclick='success_msg()' id='fin_btn'>Well Done, Continue</a>",
+  one : "<i class='fa fa-hand-o-left back' id='one' title='back'></i>", 
+  two : "<i class='fa fa-thumbs-o-up done' id='two' title='done'></i>"
+}; 
+ // x.appendChild(el_obj.textarea);
+  //x.appendChild(el_obj.button)
+ cache = [el_obj.one, el_obj.two];
+ x.insertAdjacentHTML("afterbegin", el_obj.textarea);
+ x.insertAdjacentHTML("beforeend", el_obj.button1);
+// x.insertAdjacentHTML("beforeend", cache);
+   }
 },
 
-	init = function () {
+success_msg = function () {
+  form_childs = form_modal.children;
+  for (var i = 0; i < form_childs.length; i++) {
+    form_modal.removeChild(form_childs[i]);
+    }
+    message_sent(form_modal);
+  },
+
+  message_sent = function (y) {
+    autorized4.getElementsByTagName('h3')[0].textContent = 'Profile Completed';
+    y.insertAdjacentHTML("beforeend", el_obj.well_done);
+    y.insertAdjacentHTML("beforeend", el_obj.button2);
+    $(cache).hide();
+  },
+
+test_see = function () {
+
+},
+
+  init = function () {
     for (i; i < go_btn.length; i++) {
-		go_btn[i].addEventListener("click", open_settings);
+    go_btn[i].addEventListener("click", open_settings);
   }
     back[0].addEventListener("click", go_back);
     back[1].addEventListener("click", go_back2);
     back[2].addEventListener("click", go_back3);
     back[3].addEventListener("click", go_back4);
-		play[0].addEventListener("click", sign_in);
-		play[1].addEventListener("click", voice_page);
+    play[0].addEventListener("click", sign_in);
+    play[1].addEventListener("click", voice_page);
     play[2].addEventListener("click", invite_friends)
     play[3].addEventListener("click", send_invites);
     pic_file.addEventListener("change", handleFiles, false);
@@ -298,10 +347,11 @@ test_see = function () {
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
     initiate_sw();
-	};
+    invite_contact.addEventListener("click", invite_contact_func);
+  };
 
-	return {
-		init : init
-	};
+  return {
+    init : init
+  };
 }());
 app.init();

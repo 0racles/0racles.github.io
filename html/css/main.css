@@ -210,6 +210,20 @@ body.inner_page .bg_parallax {
     cursor: pointer;
 }
 
+.done {
+    text-align : center;
+    position : relative;
+    cursor: pointer;
+}
+
+#one {
+    display: inline-block;
+}
+
+#two {
+    display: inline-block;
+}
+
 .inline {
     display: inline;
     position : absolute;
@@ -2830,6 +2844,24 @@ button.save {
   padding: 0.5rem 0.75rem;
   font-size: 0.8rem;
   color : #ffffff;
+}
+
+.butt {
+  background: #202020;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: normal;
+  color : #ffffff;   
+}
+
+.text_area {
+    width: 250px;
+    height: 150px;
+    border-radius: 5px;
+    position: relative;
+    margin: auto;
+    display: block;
+    padding: 0px 0px 10px;
 }
 
 
