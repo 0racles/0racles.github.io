@@ -62,7 +62,7 @@ this.addEventListener("install", function (event) {
           '/html/fontawesome-webfont.ttf',
           '/html/fontawesome-webfont.woff',
           '/html/fontawesome-webfront.woff2',
-          '/html/FontAwesome-webfront.otf,'
+          '/html/FontAwesome-webfront.otf'
           ]);
         })
         );
