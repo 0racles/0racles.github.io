@@ -39,6 +39,7 @@ this.addEventListener("install", function (event) {
         caches.open('v3').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
+          '/html/emergency.html',
           '/html/js/911.js', 
           '/html/js/all_scr.js',
           '/html/js/app.js',
