@@ -74,7 +74,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v3'];
+  var cacheWhitelist = ['v4'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
