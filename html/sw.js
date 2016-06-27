@@ -68,7 +68,7 @@ this.addEventListener("install", function (event) {
         );
     });
 
-/*this.addEventListener('activate', function(event) {
+this.addEventListener('activate', function(event) {
   var cacheWhitelist = ['v2'];
 
   event.waitUntil(
@@ -80,7 +80,7 @@ this.addEventListener("install", function (event) {
       }));
     })
   );
-});*/
+});
 
 
 this.addEventListener('fetch', function (event) {
