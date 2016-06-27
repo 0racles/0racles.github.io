@@ -57,13 +57,7 @@ this.addEventListener("install", function (event) {
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg',
-          '/html/img/start/bg.jpg',
-          '/html/fontawesome-webfont.eot',
-          '/html/fontawesome-webfont.svg',
-          '/html/fontawesome-webfont.ttf',
-          '/html/fontawesome-webfont.woff',
-          '/html/fontawesome-webfont.woff2',
-          '/html/FontAwesome-webfont.otf'
+          '/html/img/start/bg.jpg'
           ]);
         })
         );
