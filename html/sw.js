@@ -48,7 +48,7 @@ this.addEventListener("install", function (event) {
           '/html/js/wow.min.js',
           '/html/rs-plugin/js/jquery.themepunch.tools.min.js',
           '/html/rs-plugin/js/jquery.themepunch.revolution.min.js',
-          '/html/rs-plugin/js/assets/timer.png',
+          '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
           '/html/js/jquery.parallax-0.2-min.js',
           '/html/css/adaptive.css',
