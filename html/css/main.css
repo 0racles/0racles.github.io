@@ -2852,6 +2852,9 @@ button.save {
   font-size: 14px;
   font-weight: normal;
   color : #ffffff;   
+  display: block;
+  width : 100px;
+  margin-left:10px;
 }
 
 .text_area {

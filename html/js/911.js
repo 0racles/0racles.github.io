@@ -47,7 +47,7 @@ chunks = [],
 
 initiate_sw =function () {
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
+  navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
@@ -299,7 +299,9 @@ compose_msg = function (x) {
   button1 : "<a href='#' class='butt' style='text-decoration : none;' onclick='success_msg()' id='first_btn'>send</a>",
  button2 : "<a href='emergency.html' class='btn btn-primary' style='text-decoration : none;' onclick='success_msg()' id='fin_btn'>Well Done, Continue</a>",
   one : "<i class='fa fa-hand-o-left back' id='one' title='back'></i>", 
-  two : "<i class='fa fa-thumbs-o-up done' id='two' title='done'></i>"
+  two : "<i class='fa fa-thumbs-o-up done' id='two' title='done'></i>",
+  List : "<ul><li><span>0</span> Messages sent</li> <li><span>0</span> friends being Watched</li> <li><span>0</span> friend Watching you</li></ul>",
+  div : "<div class='add-btn' title='add more friends'>+</div>         <div class='minus-btn' title='remove friends'>-</div>"
 }; 
  // x.appendChild(el_obj.textarea);
   //x.appendChild(el_obj.button)
@@ -321,8 +323,11 @@ success_msg = function () {
   message_sent = function (y) {
     autorized4.getElementsByTagName('h3')[0].textContent = 'Profile Completed';
     y.insertAdjacentHTML("beforeend", el_obj.well_done);
+    y.insertAdjacentHTML("beforeend", el_obj.List);
+    y.insertAdjacentHTML("beforeend", el_obj.div);
     y.insertAdjacentHTML("beforeend", el_obj.button2);
-    $(cache).hide();
+    two = document.getElementById('two');
+    two.parentNode.removeChild(two);
   },
 
 test_see = function () {
