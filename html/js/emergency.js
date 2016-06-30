@@ -6,6 +6,7 @@ address = document.querySelectorAll(".address")[0],
 basic = document.querySelectorAll(".basic")[0],
 chat_button = document.getElementById("chat_button"),
 user_name = document.getElementById("user_name"),
+user_image = document.querySelectorAll('.user_image'),
 user_name2 = document.getElementById("user_name2"),
 similar = document.querySelectorAll(".similar")[0],
 addy_alert = document.querySelectorAll(".addy_alert"),
@@ -25,8 +26,9 @@ initialize_geo = function (callback) {
     callback();
     clear_bubble();
     user_name.textContent = window.localStorage.getItem("userName");
-    user_name2.textContent = window.localStorage.getItem("userName")
-
+    user_name2.textContent = window.localStorage.getItem("userName");
+    load_user_photo();
+    load_user_photo2();
  },
     
 
@@ -109,14 +111,43 @@ set_address = function (addy) {
 },
 
 
-	init = function () {
+load_user_photo = function  () {
+  var storeData = window.localStorage,
+  myImage = new Image(),
+  existingdata = {
+    "name" : storeData.getItem("userName"),
+    "email" : storeData.getItem("userEmail"),
+    "userImage" : storeData.getItem('user_image')
+  };
+  if (existingdata.userImage !== null) {
+    myImage.src = existingdata.userImage;
+    user_image[1].parentNode.replaceChild(myImage, user_image[1]);
+  }
+
+},
+
+load_user_photo2 = function  () {
+  var storeData = window.localStorage,
+  myImage = new Image(),
+  existingdata = {
+    "userImage" : storeData.getItem('user_image')
+  };
+  if (existingdata.userImage !== null) {
+    myImage.src = existingdata.userImage;
+    user_image[0].parentNode.replaceChild(myImage, user_image[0]);
+    //user_image[1].parentNode.replaceChild(myImage, user_image[1]);
+  }
+
+},
+
+
+  init = function () {
    google.maps.event.addDomListener(window, "load", initialize_geo(get_user_position));
    //chat_button.addEventListener("click", replace_comment_sec);
-   alert("we are the only two people in the world");
-	};
+  };
 
-	return {
-		init : init
-	};
+  return {
+    init : init
+  };
 }());
 app.init();

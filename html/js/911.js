@@ -158,26 +158,17 @@ sign_in = function (event) {
   // uploading user photo
 
   handleFiles = function (event) {
-    /*parent = target.parentNode;
-    if ("files" in pic_file) {
-       //pic_file.textContent = "";
-    if (pic_file.files.length == 1) {
-      for (var y = 0; y < pic_file.files.length; y++) {
-        var file = pic_file.files[y].name,
-        genk = file; //pic_file.value;
-        new_img = img.src = genk;
-   /target.parentNode.removeChild(target);
-     parent.insertAdjacentHTML("afterbegin", genk);
-    event.preventDefault();
-    //event.stopPropagation();
-      }
-    }
-  }*/
-  parent = target.parentNode;
-  var file = new pic_file(chunks, {type:'image/jpg'});
-  img_url = URL.createObjectURL(file);
-  new_img.src = img_url;
-  chunks.push(event.data);
+    var myImage = new Image();
+    parent = target.parentNode;
+  var img = this.files[0];
+  var img_url = window.URL.createObjectURL(img);
+  myImage.src = img_url;
+  myImage.style.top = '-88px';
+  myImage.style.margin = 'auto';
+  myImage.style.padding = '0px 0px 10px';
+  myImage.style.borderRadius = '100px';
+  parent.replaceChild(myImage, target);
+  set_local_storage('user_image', img_url);
 },
 
 set_local_storage = function (a, b) {
@@ -300,7 +291,7 @@ compose_msg = function (x) {
  button2 : "<a href='emergency.html' class='btn btn-primary' style='text-decoration : none;' onclick='success_msg()' id='fin_btn'>Well Done, Continue</a>",
   one : "<i class='fa fa-hand-o-left back' id='one' title='back'></i>", 
   two : "<i class='fa fa-thumbs-o-up done' id='two' title='done'></i>",
-  List : "<ul><li><span>0</span> Messages sent</li> <li><span>0</span> friends being Watched</li> <li><span>0</span> friend Watching you</li></ul>",
+  List : "<ul style='list-style:none;'><li><span>0</span> Messages sent</li> <li><span>0</span> friends being Watched</li> <li><span>0</span> friend Watching you</li></ul>",
   div : "<div class='add-btn' title='add more friends'>+</div>         <div class='minus-btn' title='remove friends'>-</div>"
 }; 
  // x.appendChild(el_obj.textarea);
