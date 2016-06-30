@@ -1,42 +1,6 @@
-/*this.addEventListener("install", function (event) {
-      event.waitUntil(
-        caches.open('v1').then(function (cache) {
-         return cache.addAll(['/html/', 
-          '/html/index.html',
-          '/html/js/911.js', 
-          '/html/img/trapped_lady.jpg', 
-          '/html/img/screaming.jpg', 
-          '/html/img/location4.jpg', 
-          '/html/img/embrace3.jpg'
-          ]);
-        })
-        );
-    });
-
-this.addEventListener("install", function (event) {
-      event.waitUntil(
-        caches.open('v2').then(function (cache) {
-         return cache.addAll(['/html/', 
-          '/html/index.html',
-          '/html/js/911.js', 
-          '/html/css/adaptive.css',
-          '/html/css/animate.css',
-          '/html/css/bootstrap.css',
-          '/html/css/main.css',
-          '/html/css/pushy.css',
-          '/html/css/font-awesome.css',
-          '/html/img/trapped_lady.jpg', 
-          '/html/img/screaming.jpg', 
-          '/html/img/location4.jpg', 
-          '/html/img/embrace3.jpg'
-          ]);
-        })
-        );
-    });*/
-
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v8').then(function (cache) {
+        caches.open('v9').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/emergency.html',
@@ -74,7 +38,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v8'];
+  var cacheWhitelist = ['v9'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
