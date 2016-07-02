@@ -214,12 +214,12 @@ get_local_Storage = function  () {
       var msg = new SpeechSynthesisUtterance(),
       voices = window.speechSynthesis.getVoices();
       msg.voice = voices[8];
-      msg.URI = 'native';
-      msg.lang = 'en-GB';
+      msg.voiceURI = 'Google espanol';
+      msg.lang = 'es-ES';
       msg.volume = 1;
       msg.pitch = 2;
       msg.text = 'Your secret Magic word is, help me';
-      msg.rate = 0.7;
+      msg.rate = 0.8;
     window.speechSynthesis.speak(msg);
 
         mediaRecorder.stop();
