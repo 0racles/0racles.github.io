@@ -45,7 +45,7 @@ storedData,
 chunks = [],
 // dropdown for microphone settings
 
-initiate_sw =function () {
+/*initiate_sw =function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
@@ -53,7 +53,7 @@ if ('serviceWorker' in navigator) {
     console.log('Registration failed with ' + error);
    }); 
  }
-},
+},*/
 
 open_settings = function() {
    autorized.classList.remove("none");
@@ -211,6 +211,8 @@ get_local_Storage = function  () {
       
 
       replay.onclick = function (event) {
+      var msg = new SpeechSynthesisUtterance('Hello World');
+        window.speechSynthesis.speak(msg);
         mediaRecorder.stop();
          mic.style.color = '#000000';
          alert(mediaRecorder.state);
@@ -342,7 +344,7 @@ test_see = function () {
     mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
-    initiate_sw();
+    //initiate_sw();
     invite_contact.addEventListener("click", invite_contact_func);
   };
 
