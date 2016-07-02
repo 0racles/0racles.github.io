@@ -211,8 +211,17 @@ get_local_Storage = function  () {
       
 
       replay.onclick = function (event) {
-      var msg = new SpeechSynthesisUtterance('Your secret magic word is, Harry Croydon. Click the  save button to continue.');
-        window.speechSynthesis.speak(msg);
+      var msg = new SpeechSynthesisUtterance(),
+      voices = window.speechSynthesis.getVoices();
+      msg.voice = voices[10];
+      msg.URI = 'native';
+      msg.lang = 'en-us';
+      msg.volume = 1;
+      msg.pitch = 2;
+      msg.text = 'Your secret Magic word is, help me';
+      msg.rate = 3;
+    window.speechSynthesis.speak(msg);
+
         mediaRecorder.stop();
          mic.style.color = '#000000';
          alert(mediaRecorder.state);
