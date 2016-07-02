@@ -213,13 +213,13 @@ get_local_Storage = function  () {
       replay.onclick = function (event) {
       var msg = new SpeechSynthesisUtterance(),
       voices = window.speechSynthesis.getVoices();
-      msg.voice = voices[9];
+      msg.voice = voices[8];
       msg.URI = 'native';
-      msg.lang = 'en-us';
+      msg.lang = 'en-GB';
       msg.volume = 1;
       msg.pitch = 2;
       msg.text = 'Your secret Magic word is, help me';
-      msg.rate = 0.3;
+      msg.rate = 0.7;
     window.speechSynthesis.speak(msg);
 
         mediaRecorder.stop();
