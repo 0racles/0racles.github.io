@@ -211,7 +211,7 @@ get_local_Storage = function  () {
       
 
       replay.onclick = function (event) {
-      var msg = new SpeechSynthesisUtterance('You said, call me i am in trouble');
+      var msg = new SpeechSynthesisUtterance('Your secret magic word is, Harry Croydon. Click the  save button to continue');
         window.speechSynthesis.speak(msg);
         mediaRecorder.stop();
          mic.style.color = '#000000';
