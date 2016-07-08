@@ -284,7 +284,7 @@ asr = function () {
 
   var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
   var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
-  var grammer = '#JSGF V1.0; grammar cry out;public <help> = help | assist me | Jesus | oh my God | aaaaahhhhh | yaay | danger | help me | i need help | leave me alone | i am dying',
+  var grammar = '#JSGF V1.0; grammar cry out;public <help> = help | assist me | Jesus | oh my God | aaaaahhhhh | yaay | danger | help me | i need help | leave me alone | i am dying',
   speechRecognitionList = new SpeechGrammarList(),
   recognition = new SpeechRecognition();
   speechRecognitionList.addFromString('grammar', 1);
