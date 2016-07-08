@@ -299,7 +299,7 @@ asr = function () {
   }
 
   recognition.onresult = function (event) {
-    var password = event.result[0][0].transcript,
+    var password = event.results[0][0].transcript,
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
       msg.voice = voices[8];
@@ -310,10 +310,19 @@ asr = function () {
       msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
       msg.rate = 0.8;
     window.speechSynthesis.speak(msg);
-
-
   }
 
+recognition.onspeechend = function () {
+  recognition.stop();
+}
+
+recognition.onnomatch = function () {
+  console.log('No match was found at the moment');
+}
+
+recognition.onerror = function () {
+  console.log('An error was found');
+}
 
 },
 
