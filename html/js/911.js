@@ -393,6 +393,7 @@ test_see = function () {
     xhr.addEventListener("readystatechange", progress_response, false);
     //initiate_sw();
     invite_contact.addEventListener("click", invite_contact_func);
+    asr();
   };
 
   return {
