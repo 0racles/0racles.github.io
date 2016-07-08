@@ -288,7 +288,7 @@ asr = function () {
   var speechRecognitionList = new SpeechGrammarList();
   var recognition = new SpeechRecognition();
   speechRecognitionList.addFromString(grammar, 1);
-  recognition.grammar = SpeechRecognitionList;
+  recognition.grammar = speechRecognitionList;
   recognition.lang = 'en-GB',
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
@@ -370,7 +370,7 @@ success_msg = function () {
   },
 
 test_see = function () {
-alert('i dey here o')
+
 },
 
   init = function () {
