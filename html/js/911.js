@@ -280,6 +280,44 @@ get_local_Storage = function  () {
       }
         },
 
+asr = function () {
+
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
+  SpeechRecognitionList = SpeechGrammarList || webkitSpeechGrammarList;
+
+  var grammer = '#JSGF V1.0; grammar cry out;public <help> = help | assist me | Jesus | oh my God | aaaaahhhhh | yaay | danger | help me | i need help | leave me alone | i am dying',
+  speechRecognitionList = new SpeechGrammarList(),
+  recognition = new SpeechRecognition();
+  speechRecognitionList.addFromString('grammar', 1);
+  recognition.grammar = SpeechRecognitionList;
+  recognition.lang = 'en-GB',
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+
+  mic.onclick = function (e) {
+    recognition.start();
+    console.log('its time to say your secret magic word');
+  }
+
+  recognition.onresult = function (event) {
+    var password = event.result[0][0].transcript,
+    msg = new SpeechSynthesisUtterance(),
+    voices = window.speechSynthesis.getVoices();
+      msg.voice = voices[8];
+      msg.voiceURI = 'Google espanol';
+      msg.lang = 'es-GB';
+      msg.volume = 1;
+      msg.pitch = 2;
+      msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
+      msg.rate = 0.8;
+    window.speechSynthesis.speak(msg);
+
+
+  }
+
+
+},
+
 invite_contact_func = function () {
   form_modal = autorized4.getElementsByTagName('form')[0];
   form_childs = form_modal.children;
@@ -350,7 +388,7 @@ test_see = function () {
     play[3].addEventListener("click", send_invites);
     pic_file.addEventListener("change", handleFiles, false);
     get_local_Storage();
-    mic.addEventListener("click", mic_check);
+    //mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
     //initiate_sw();
