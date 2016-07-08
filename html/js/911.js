@@ -370,7 +370,7 @@ success_msg = function () {
   },
 
 test_see = function () {
-
+alert('i dey here o')
 },
 
   init = function () {
