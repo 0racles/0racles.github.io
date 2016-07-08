@@ -45,7 +45,7 @@ storedData,
 chunks = [],
 // dropdown for microphone settings
 
-/*initiate_sw =function () {
+initiate_sw =function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
@@ -53,7 +53,7 @@ if ('serviceWorker' in navigator) {
     console.log('Registration failed with ' + error);
    }); 
  }
-},*/
+},
 
 open_settings = function() {
    autorized.classList.remove("none");
