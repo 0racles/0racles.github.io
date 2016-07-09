@@ -299,7 +299,7 @@ asr = function () {
   }
 
   recognition.onresult = function (event) {
-    var password = event.results[0][0].transcript,
+    var password = event.results[0][0].transcript;
     console.log(password);
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
