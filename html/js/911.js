@@ -316,6 +316,12 @@ asr = function () {
 
 recognition.onspeechend = function () {
   recognition.stop();
+  saveButton.textContent = "Save";
+  saveButton.className = "save";
+
+  var first = forms[2].firstElementChild,
+  newnode = forms[2].insertBefore(audio, first);
+  forms[2].insertBefore(saveButton, first);
 }
 
 recognition.onnomatch = function () {
