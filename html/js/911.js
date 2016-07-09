@@ -339,7 +339,7 @@ recognition.onerror = function () {
 },
 
 visualize = function (para) {
-  var source = audioCtx.createMediaStreamSource(para);
+  var source = para; //audioCtx.createMediaStreamSource(para);
 
   var analyser = audioCtx.createAnalyser();
   analyser.fftSize = 2048;
