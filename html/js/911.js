@@ -305,7 +305,7 @@ asr = function () {
     var password = event.results[0][0].transcript;
     console.log(password);
     
-    msg = new SpeechSynthesisUtterance(),
+    msg = new SpeechSynthesisUtterance(stream),
     voices = window.speechSynthesis.getVoices();
       msg.voice = voices[8];
       msg.voiceURI = 'Google english';
@@ -315,7 +315,7 @@ asr = function () {
       msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
       msg.rate = 0.8;
     window.speechSynthesis.speak(msg);
-    visualize(msg);
+    visualize(stream);
   }
 
 recognition.onspeechend = function () {
@@ -338,8 +338,8 @@ recognition.onerror = function () {
 
 },
 
-visualize = function (para) {
-  var source = para; //audioCtx.createMediaStreamSource(para);
+visualize = function (stream) {
+  var source = audioCtx.createMediaStreamSource(stream);
 
   var analyser = audioCtx.createAnalyser();
   analyser.fftSize = 2048;
