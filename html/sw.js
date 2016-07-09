@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v1').then(function (cache) {
+        caches.open('v11').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/emergency.html',
@@ -38,7 +38,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v1'];
+  var cacheWhitelist = ['v11'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
