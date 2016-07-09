@@ -43,6 +43,7 @@ span_3,
 existing_data = {},
 storedData,
 chunks = [],
+canvas = document.querySelector('.visualizer'),
 audioCtx = new (window.AudioContext || webkitAudioContext)(),
 canvasCtx = canvas.getContext("2d"),
 // dropdown for microphone settings
@@ -307,8 +308,8 @@ asr = function () {
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
       msg.voice = voices[8];
-      msg.voiceURI = 'Google espanol';
-      msg.lang = 'es-GB';
+      msg.voiceURI = 'Google english';
+      msg.lang = 'en-GB';
       msg.volume = 1;
       msg.pitch = 2;
       msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
@@ -369,7 +370,6 @@ visualize = function (stream) {
 
     var sliceWidth = WIDTH * 1.0 / bufferLength;
     var x = 0;
-
 
     for(var i = 0; i < bufferLength; i++) {
  
