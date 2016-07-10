@@ -8,7 +8,7 @@
 display: block;
 position: fixed;
 top: 30px;
-left: 130px;
+left: 30px;
 font-size: 21px;
 color: #E73931;
 width: 40px;
@@ -17,6 +17,106 @@ padding: 4px 9px;
 border-radius: 100px;
 transition:0.3s;
 z-index: 99999999;
+}
+
+/* newly added*/
+.minus-btn {
+display: inline;
+font-size: 21px;
+color: #E73931;
+width: 40px;
+height: 40px;
+padding: 4px 9px;
+border-radius: 100px;
+transition:0.3s;
+z-index: 99999999;
+}
+
+.add-btn {
+display: inline-block;
+font-size: 21px;
+color: #ffffff;
+width: 40px;
+height: 40px;
+padding: 4px 9px;
+border-radius: 100px;
+transition:0.3s;
+z-index: 99999999;
+background: #218DEA;
+text-align: center;
+}
+
+.add-btn span {
+position: absolute;
+font-size: 11px;
+background: #E73931;
+width: 20px;
+height: 20px;
+border-radius: 100px;
+padding: 0px 5px;
+border: 2px solid;
+color: #ffffff;
+}
+.add-btn:hover span {display: none;}
+.add-btn:hover {
+display: inline-block;
+font-size: 25px;
+color: #ffffff;
+background: #202020;
+width: 40px;
+cursor: pointer;
+height: 40px;
+padding: 4px 9px;
+border-radius: 100px;
+transition:0.3s;
+}
+
+
+.minus-btn {
+display: inline-block;
+font-size: 21px;
+color: #ffffff;
+width: 40px;
+height: 40px;
+padding: 4px 9px;
+border-radius: 100px;
+transition:0.3s;
+z-index: 99999999;
+background: #E73931;
+text-align: center;
+}
+
+.minus-btn span {
+position: absolute;
+font-size: 11px;
+background: #E73931;
+width: 20px;
+height: 20px;
+border-radius: 100px;
+padding: 0px 0px 10px; /* 0px 5px */
+border: 2px solid;
+color: #ffffff;
+}
+.minus-btn:hover span {display: none;}
+.minus-btn:hover {
+display: inline-block;
+font-size: 25px;
+color: #ffffff;
+background: #202020;
+width: 40px;
+cursor: pointer;
+height: 40px;
+padding: 4px 9px;
+border-radius: 100px;
+transition:0.3s;
+}
+
+
+
+
+
+
+
 }
 .menu-btn span {
 position: absolute;
