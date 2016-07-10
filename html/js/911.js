@@ -315,7 +315,7 @@ asr = function () {
       msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
       msg.rate = 0.8;
     window.speechSynthesis.speak(msg);
-    visualize(msg);
+    visualize(stream);
   }
 
 recognition.onspeechend = function () {
@@ -338,8 +338,8 @@ recognition.onerror = function () {
 
 },
 
-visualize = function (msg) {
-  var source = audioCtx.createMediaStreamSource(msg);
+visualize = function (stream) {
+  var source = audioCtx.createMediaStreamSource(stream);
 
   var analyser = audioCtx.createAnalyser();
   analyser.fftSize = 2048;
