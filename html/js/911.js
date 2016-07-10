@@ -305,7 +305,7 @@ asr = function () {
     var password = event.results[0][0].transcript;
     console.log(password);
     
-    msg = new SpeechSynthesisUtterance(),
+    msg = new SpeechSynthesisUtterance(stream),
     voices = window.speechSynthesis.getVoices();
       msg.voice = voices[8];
       msg.voiceURI = 'Google english';
