@@ -304,6 +304,7 @@ asr = function () {
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
     console.log(password);
+    mic.style.color ? black : red;
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
@@ -315,7 +316,7 @@ asr = function () {
       msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
       msg.rate = 0.8;
     window.speechSynthesis.speak(msg);
-    visualize();
+    visualize(stream);
   }
 
 recognition.onspeechend = function () {
