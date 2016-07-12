@@ -305,6 +305,7 @@ asr = function () {
     var password = event.results[0][0].transcript;
     console.log(password);
     setInterval(function () {mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
+    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(7deg)' ? 'rotate(-7deg)' : 'rotate(7deg)'}, 200);
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
@@ -323,6 +324,8 @@ recognition.onspeechend = function () {
   recognition.stop();
   saveButton.textContent = "Save";
   saveButton.className = "save";
+  mic.style.color = '#e73931';
+  mic.style.transform == 'rotate(0deg)';
 
   var first = forms[2].firstElementChild,
   newnode = forms[2].insertBefore(audio, first);
