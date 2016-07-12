@@ -304,7 +304,7 @@ asr = function () {
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
     console.log(password);
-    mic.style.color ? black : red;
+    mic.style.color = mic.style.color == 'black' ? 'red' : 'black' ;
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
