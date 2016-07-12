@@ -300,7 +300,7 @@ asr = function () {
     recognition.start();
     console.log('its time to say your secret magic word');
        setInterval(function () {mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
-    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(7deg)' ? 'rotate(-7deg)' : 'rotate(7deg)'}, 200);
+    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(70deg)' ? 'rotate(-70deg)' : 'rotate(70deg)'}, 200);
   }
 
   recognition.onresult = function (event) {
