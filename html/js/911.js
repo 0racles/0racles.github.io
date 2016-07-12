@@ -299,13 +299,13 @@ asr = function () {
   mic.onclick = function (e) {
     recognition.start();
     console.log('its time to say your secret magic word');
+       setInterval(function () {mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
+    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(7deg)' ? 'rotate(-7deg)' : 'rotate(7deg)'}, 200);
   }
 
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
     console.log(password);
-    setInterval(function () {mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
-    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(7deg)' ? 'rotate(-7deg)' : 'rotate(7deg)'}, 200);
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
@@ -317,7 +317,6 @@ asr = function () {
       msg.text = 'Your secret Magic word is,  ' +  password + '. You can click the save button to continue';
       msg.rate = 0.8;
     window.speechSynthesis.speak(msg);
-    visualize(stream);
   }
 
 recognition.onspeechend = function () {
@@ -340,59 +339,6 @@ recognition.onerror = function () {
   console.log('An error was found');
 }
 
-},
-
-visualize = function (stream) {
-  var source = audioCtx.createMediaStreamSource(stream);
-
-  var analyser = audioCtx.createAnalyser();
-  analyser.fftSize = 2048;
-  var bufferLength = analyser.frequencyBinCount;
-  var dataArray = new Uint8Array(bufferLength);
-
-  source.connect(analyser);
-  //analyser.connect(audioCtx.destination);
-  
-  WIDTH = canvas.width
-  HEIGHT = canvas.height;
-
-  draw()
-
-  function draw() {
-
-    requestAnimationFrame(draw);
-
-    analyser.getByteTimeDomainData(dataArray);
-
-    canvasCtx.fillStyle = 'rgb(200, 200, 200)';
-    canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
-
-    canvasCtx.beginPath();
-
-    var sliceWidth = WIDTH * 1.0 / bufferLength;
-    var x = 0;
-
-    for(var i = 0; i < bufferLength; i++) {
- 
-      var v = dataArray[i] / 128.0;
-      var y = v * HEIGHT/2;
-
-      if(i === 0) {
-        canvasCtx.moveTo(x, y);
-      } else {
-        canvasCtx.lineTo(x, y);
-      }
-
-      x += sliceWidth;
-    }
-
-    canvasCtx.lineTo(canvas.width, canvas.height/2);
-    canvasCtx.stroke();
-
-  }
 },
 
 invite_contact_func = function () {
