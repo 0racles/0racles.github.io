@@ -306,7 +306,7 @@ asr = function () {
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
     forms[2].textContent = password;
-    
+
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
@@ -326,6 +326,7 @@ recognition.onspeechend = function () {
   saveButton.className = "save";
   mic.style.color = '#e73931';
   mic.style.transform = 'none';
+  forms[2].textContent = password;
 
   var first = forms[2].firstElementChild,
   newnode = forms[2].insertBefore(audio, first);
@@ -336,12 +337,14 @@ recognition.onnomatch = function () {
   console.log('No match was found at the moment');
    mic.style.color = '#e73931';
   mic.style.transform = 'none';
+  forms[2].textContent = password;
 }
 
 recognition.onerror = function () {
   console.log('An error was found');
    mic.style.color = '#e73931';
   mic.style.transform = 'none';
+  forms[2].textContent = password;
 }
 
 },
