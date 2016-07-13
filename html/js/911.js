@@ -299,8 +299,8 @@ asr = function () {
   mic.onclick = function (e) {
     recognition.start();
     console.log('its time to say your secret magic word');
-       setInterval(function () {mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
-    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(70deg)' ? 'rotate(-70deg)' : 'rotate(70deg)'}, 200);
+    setInterval(function () { mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
+    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200);
   }
 
   recognition.onresult = function (event) {
@@ -324,7 +324,7 @@ recognition.onspeechend = function () {
   saveButton.textContent = "Save";
   saveButton.className = "save";
   mic.style.color = '#e73931';
-  mic.style.transform == 'rotate(0deg)';
+  mic.style.transform == 'none';
 
   var first = forms[2].firstElementChild,
   newnode = forms[2].insertBefore(audio, first);
