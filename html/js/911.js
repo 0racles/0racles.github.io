@@ -303,7 +303,8 @@ asr = function () {
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
     forms[2].firstElementChild.textContent = password;
-
+    forms[2].firstElementChild.margin = 'auto';
+    forms[2].firstElementChild.padding = '0px 0px 10px';
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
@@ -323,11 +324,10 @@ recognition.onspeechend = function () {
   saveButton.className = "save";
   mic.style.color = '#e73931';
   mic.style.transform = 'none';
-  forms[2].textContent = password;
 
-  var first = forms[2].firstElementChild,
-  newnode = forms[2].insertBefore(audio, first);
-  forms[2].insertBefore(saveButton, first);
+  var last = forms[2].lastElementChild,
+  newnode = forms[2].insertBefore(audio, last);
+  forms[2].insertBefore(saveButton, last);
 }
 
 recognition.onnomatch = function () {
