@@ -43,9 +43,6 @@ span_3,
 existing_data = {},
 storedData,
 chunks = [],
-canvas = document.querySelector('.visualizer'),
-audioCtx = new (window.AudioContext || webkitAudioContext)(),
-canvasCtx = canvas.getContext("2d"),
 // dropdown for microphone settings
 
 initiate_sw =function () {
