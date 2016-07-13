@@ -305,7 +305,8 @@ asr = function () {
 
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
-    forms[2].insertAdjacentHTML('afterbegin', password)
+    forms[2].textContent = password;
+    
     
     msg = new SpeechSynthesisUtterance(),
     voices = window.speechSynthesis.getVoices();
