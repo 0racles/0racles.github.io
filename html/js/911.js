@@ -333,10 +333,14 @@ recognition.onspeechend = function () {
 
 recognition.onnomatch = function () {
   console.log('No match was found at the moment');
+   mic.style.color = '#e73931';
+  mic.style.transform = 'none';
 }
 
 recognition.onerror = function () {
   console.log('An error was found');
+   mic.style.color = '#e73931';
+  mic.style.transform = 'none';
 }
 
 },
