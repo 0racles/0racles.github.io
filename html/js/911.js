@@ -324,7 +324,7 @@ recognition.onspeechend = function () {
   saveButton.textContent = "Save";
   saveButton.className = "save";
   mic.style.color = '#e73931';
-  mic.style.transform == 'none';
+  mic.style.transform = 'none';
 
   var first = forms[2].firstElementChild,
   newnode = forms[2].insertBefore(audio, first);
