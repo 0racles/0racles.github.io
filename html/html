@@ -1,1 +1,0 @@
-// insert service worker scripts here
