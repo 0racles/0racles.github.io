@@ -3,6 +3,7 @@ this.addEventListener("install", function (event) {
         caches.open('v17').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
+          'html/manifest.json',
           '/html/emergency.html',
           '/html/js/911.js', 
           '/html/js/all_scr.js',
@@ -31,7 +32,12 @@ this.addEventListener("install", function (event) {
           '/html/font/fontawesome-webfont.woff2?v=4.3.0',
           '/html/rs-plugin/font/revicons.woff?5510888',
           '/html/rs-plugin/font/revicons.ttf?5510888',
-          '/html/font/fontawesome-webfont.ttf?v=4.3.0'
+          '/html/font/fontawesome-webfont.ttf?v=4.3.0',
+          'html/wmb_128x128.png',
+          'html/wmb_144x144.png',
+          'html/wmb_152x152.png',
+          'html/wmb_192x192.png',
+          'html/wmb_256x256.png'
           ]);
         })
         );
