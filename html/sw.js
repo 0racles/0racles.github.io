@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v18').then(function (cache) {
+        caches.open('v19').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -33,18 +33,18 @@ this.addEventListener("install", function (event) {
           '/html/rs-plugin/font/revicons.woff?5510888',
           '/html/rs-plugin/font/revicons.ttf?5510888',
           '/html/font/fontawesome-webfont.ttf?v=4.3.0',
-          '/html/wmb_128x128.png',
-          '/html/wmb_144x144.png',
-          '/html/wmb_152x152.png',
-          '/html/wmb_192x192.png',
-          '/html/wmb_256x256.png'
+          '/html/img/wmb_128x128.png',
+          '/html/img/wmb_144x144.png',
+          '/html/img/wmb_152x152.png',
+          '/html/img/wmb_192x192.png',
+          '/html/img/wmb_256x256.png'
           ]);
         })
         );
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v18'];
+  var cacheWhitelist = ['v19'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
