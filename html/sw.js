@@ -1,8 +1,9 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v26').then(function (cache) {
+        caches.open('v27').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
+          '/manifest.json',
           '/html/emergency.html',
           '/html/js/911.js', 
           '/html/js/all_scr.js',
@@ -43,7 +44,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v26'];
+  var cacheWhitelist = ['v27'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
