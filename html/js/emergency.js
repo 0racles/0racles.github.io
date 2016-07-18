@@ -14,6 +14,15 @@ get_user_position,
 z = 0,
 newLocation,
 
+initiate_sw =function () {
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
+    console.log("you have succesfully registered. Scope is " + reg.scope);
+  }).catch(function(error) { 
+    console.log('Registration failed with ' + error);
+   }); 
+ }
+},
 
 initialize_geo = function (callback) {
     
