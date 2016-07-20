@@ -62,6 +62,8 @@ this.addEventListener('fetch', function (event) {
     );
 });
 
+// push notification begin here
+
 this.addEventListener('push', event => {
    event.waitUntil(() => {
      if (event.data) {
