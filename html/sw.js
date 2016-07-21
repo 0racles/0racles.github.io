@@ -1,4 +1,4 @@
-this.addEventListener("install", function (event) {
+/*this.addEventListener("install", function (event) {
     event.waitUntil(
         caches.open('v14').then(function (cache) {
          return cache.addAll(['/html/', 
@@ -80,7 +80,7 @@ this.addEventListener("push", event => {
     { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
     { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
   });
-});  
+});*/  
 
 // this is for the click event
 
