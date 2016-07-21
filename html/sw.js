@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v13').then(function (cache) {
+        caches.open('v14').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -44,7 +44,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v13'];
+  var cacheWhitelist = ['v14'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -70,7 +70,7 @@ this.addEventListener("push", event => {
       return Promise.resolve(event.data);
      } 
      return fetch("demo_sse.php").then(response => response.json());
-}).then(data => {
+).then(data => {
  return this.registration.showNotification(title, {
     body : 'help me',
     icon : 'screaming.jpg',
@@ -79,7 +79,7 @@ this.addEventListener("push", event => {
     actions : [
     { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
     { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
-  })
+  });
 });  
 
 // this is for the click event
