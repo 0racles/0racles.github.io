@@ -82,6 +82,8 @@ this.addEventListener('push', event => {
   })
 });  
 
+// this is for the click event
+
 this.addEventListener('notificationclick', event => {
 event.waitUntil(() => 
    event.notification.close();
