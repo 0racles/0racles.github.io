@@ -64,7 +64,7 @@ this.addEventListener('fetch', function (event) {
 
 // push notification begin here
 
-this.addEventListener('push', event => {
+/*this.addEventListener('push', event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);
@@ -89,4 +89,4 @@ event.waitUntil(() =>
    event.notification.close();
   )
 
-});
+});*/
