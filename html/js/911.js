@@ -45,6 +45,33 @@ storedData,
 chunks = [],
 // dropdown for microphone settings
 
+// push notification begin here
+
+/*this.addEventListener("push", event => {
+   event.waitUntil(() => {
+     if (event.data) {
+      return Promise.resolve(event.data);
+     } 
+     return fetch("demo_sse.php").then(response => response.json());
+).then(data => {
+ return this.registration.showNotification(title, {
+    body : 'help me',
+    icon : 'screaming.jpg',
+    vibrate: [200, 100, 200, 100, 400],
+    tag : 'request',
+    actions : [
+    { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
+    { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
+  });
+});  // this is for the click event
+
+this.addEventListener("notificationclick", event => {
+event.waitUntil(() => 
+   event.notification.close();
+  )
+
+});*/
+
 initiate_sw =function () {
   var source = new Eventsource("demo_sse.php");
 if ('serviceWorker' in navigator) {
