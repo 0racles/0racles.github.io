@@ -58,11 +58,9 @@ this.addEventListener('activate', function(event) {
 });
 this.addEventListener('fetch', function (event) {
 	event.respondWith(
-    caches.match(event.request)
-    );
-});
+    caches.match(event.request);
 
-this.addEventListener("push", event => {
+    this.addEventListener("push", event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);
@@ -86,3 +84,6 @@ event.waitUntil(() =>
   )
 
 });
+    );
+});
+
