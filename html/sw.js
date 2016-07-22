@@ -80,9 +80,7 @@ this.addEventListener('fetch', function (event) {
     { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
     { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
   });
-});*/  
-
-// this is for the click event
+});  // this is for the click event
 
 this.addEventListener("notificationclick", event => {
 event.waitUntil(() => 
