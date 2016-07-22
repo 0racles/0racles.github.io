@@ -1,6 +1,6 @@
-/*this.addEventListener("install", function (event) {
+this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v14').then(function (cache) {
+        caches.open('v15').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -44,7 +44,7 @@
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v14'];
+  var cacheWhitelist = ['v15'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -64,7 +64,7 @@ this.addEventListener('fetch', function (event) {
 
 // push notification begin here
 
-this.addEventListener("push", event => {
+/*this.addEventListener("push", event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);

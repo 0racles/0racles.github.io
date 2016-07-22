@@ -49,10 +49,20 @@ initiate_sw =function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
+    reg.pushManager.subscribe().then(function (pushSubscription) {
+      console.log(pushSubscription);
+    })
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
  }
+
+ this.onpush = function (event) {
+   if(event.data) {
+    console.log(event.data);
+   }
+ }
+ // send the push notification
 },
 
 open_settings = function() {
