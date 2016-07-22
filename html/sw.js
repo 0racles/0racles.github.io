@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v15').then(function (cache) {
+        caches.open('v14').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -51,7 +51,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v15'];
+  var cacheWhitelist = ['v14'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -67,30 +67,6 @@ this.addEventListener('fetch', function (event) {
 	event.respondWith(
     caches.match(event.request);
 
-    this.addEventListener("push", event => {
-   event.waitUntil(() => {
-     if (event.data) {
-      return Promise.resolve(event.data);
-     } 
-     return fetch("demo_sse.php").then(response => response.json());
-).then(data => {
- return this.registration.showNotification(title, {
-    body : 'help me',
-    icon : 'screaming.jpg',
-    vibrate: [200, 100, 200, 100, 400],
-    tag : 'request',
-    actions : [
-    { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
-    { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
-  });
-});  
-
-this.addEventListener("notificationclick", event => {
-event.waitUntil(() => 
-   event.notification.close();
-  )
-
-});
     );
 });
 
