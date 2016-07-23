@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v12').then(function (cache) {
+        caches.open('v13').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -16,8 +16,6 @@ this.addEventListener("install", function (event) {
           '/html/rs-plugin/js/jquery.themepunch.revolution.min.js',
           '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
-          '/html/bower_components/angular/angular.js',
-          '/html/bower_components/angular-chat/angular-chat.js',
           '/html/js/jquery.parallax-0.2-min.js',
           '/html/css/adaptive.css',
           '/html/css/animate.css',
@@ -40,6 +38,7 @@ this.addEventListener("install", function (event) {
           '/html/img/avatar/ava_14.jpg',
           '/html/img/avatar/ava_15.jpg',
           '/html/img/avatar/ava_16.jpg',
+          '/html/img/c_logo.jpg',
           '/html/font/fontawesome-webfont.woff?v=4.3.0',
           '/html/font/fontawesome-webfont.woff2?v=4.3.0',
           '/html/rs-plugin/font/revicons.woff?5510888',
@@ -56,7 +55,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v12'];
+  var cacheWhitelist = ['v13'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
