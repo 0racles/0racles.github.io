@@ -85,8 +85,8 @@ this.addEventListener("push", event => {
      if (event.data) {
       return Promise.resolve(event.data);
      } 
-     return fetch("demo_sse.php").then(response => response.json());
-).then(data => {
+     return fetch("demo_sse.php").then(response => response.json())
+     .then(data => {
  return this.registration.showNotification(title, {
     body : 'help me',
     icon : 'screaming.jpg',
