@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v4').then(function (cache) {
+        caches.open('v5').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -14,6 +14,7 @@ this.addEventListener("install", function (event) {
           '/html/rs-plugin/js/jquery.themepunch.tools.min.js',
           '/html/rs-plugin/js/jquery.themepunch.revolution.min.js',
           '/html/bower_components/angular/angular.js',
+          '/html/bower_components/angular-chat/angular-chat.js',
           '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
           '/html/js/jquery.parallax-0.2-min.js',
@@ -46,7 +47,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v4'];
+  var cacheWhitelist = ['v5'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
