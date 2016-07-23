@@ -80,12 +80,14 @@ if ('serviceWorker' in navigator) {
     reg.pushManager.subscribe().then(function (pushSubscription) {
       console.log(pushSubscription.endpoint);
 
+
 this.addEventListener("push", event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);
      } 
-     return fetch("demo_sse.php").then(response => response.json()).then(data => {
+     return fetch("demo_sse.php").then(response => response.json());
+}).then(data => {
  return this.registration.showNotification(title, {
     body : 'help me',
     icon : 'screaming.jpg',
@@ -95,13 +97,7 @@ this.addEventListener("push", event => {
     { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
     { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
   });
-});  
-
-this.addEventListener("notificationclick", event => {
-event.waitUntil(() => {
-   event.notification.close();
-  })
-
+})) 
 });
 
 
