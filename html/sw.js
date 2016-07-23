@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v8').then(function (cache) {
+        caches.open('v10').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -14,8 +14,6 @@ this.addEventListener("install", function (event) {
           '/html/js/wow.min.js',
           '/html/rs-plugin/js/jquery.themepunch.tools.min.js',
           '/html/rs-plugin/js/jquery.themepunch.revolution.min.js',
-          '/html/bower_components/angular/angular.js',
-          '/html/bower_components/angular-chat/angular-chat.js',
           '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
           '/html/js/jquery.parallax-0.2-min.js',
@@ -54,7 +52,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v8'];
+  var cacheWhitelist = ['v10'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
