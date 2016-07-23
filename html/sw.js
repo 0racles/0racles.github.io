@@ -1,13 +1,10 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v15').then(function (cache) {
-         return cache.addAll([
-          '/html/', 
+        caches.open('v9').then(function (cache) {
+         return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
           '/html/emergency.html',
-          '/html/bower_components/angular/angular.js',
-          '/html/bower_components/angular-chat/angular-chat.js',
           '/html/js/911.js', 
           '/html/js/all_scr.js',
           '/html/js/app.js',
@@ -16,10 +13,9 @@ this.addEventListener("install", function (event) {
           '/html/js/wow.min.js',
           '/html/rs-plugin/js/jquery.themepunch.tools.min.js',
           '/html/rs-plugin/js/jquery.themepunch.revolution.min.js',
+          '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
           '/html/js/jquery.parallax-0.2-min.js',
-          '/html/js/names.js',
-          '/html/js/jflickrfeed.js',
           '/html/css/adaptive.css',
           '/html/css/animate.css',
           '/html/css/bootstrap.css',
@@ -27,20 +23,11 @@ this.addEventListener("install", function (event) {
           '/html/css/pushy.css',
           '/html/css/font-awesome.css',
           '/html/rs-plugin/css/settings.css',
-          '/html/rs-plugin/assets/timer.png',
           '/html/img/trapped_lady.jpg', 
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
           '/html/img/embrace3.jpg',
           '/html/img/start/bg.jpg',
-          '/html/img/avatar/ava_16.jpg',
-          '/html/img/c_logo.jpg',
-          '/html/img/avatar/ava_11.jpg',
-          '/html/img/avatar/ava_12.jpg',
-          '/html/img/avatar/ava_13.jpg',
-          '/html/img/avatar/ava_14.jpg',
-          '/html/img/avatar/ava_15.jpg',
-          '/html/img/bg.png',
           '/html/font/fontawesome-webfont.woff?v=4.3.0',
           '/html/font/fontawesome-webfont.woff2?v=4.3.0',
           '/html/rs-plugin/font/revicons.woff?5510888',
@@ -57,7 +44,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v15'];
+  var cacheWhitelist = ['v9'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -69,9 +56,14 @@ this.addEventListener('activate', function(event) {
     })
   );
 });
+
+
 this.addEventListener('fetch', function (event) {
-	event.respondWith(
-    caches.match(event.request);
+  event.respondWith(
+    caches.match(event.request)
     );
 });
+
+
+
 
