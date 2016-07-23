@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v6').then(function (cache) {
+        caches.open('v7').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -32,6 +32,11 @@ this.addEventListener("install", function (event) {
           '/html/img/embrace3.jpg',
           '/html/img/start/bg.jpg',
           '/html/img/bg.png',
+          '/html/img/avatar/ava_11.jpg',
+          '/html/img/avatar/ava_12.jpg',
+          '/html/img/avatar/ava_13.jpg',
+          '/html/img/avatar/ava_14.jpg',
+          '/html/img/avatar/ava_15.jpg',
           '/html/font/fontawesome-webfont.woff?v=4.3.0',
           '/html/font/fontawesome-webfont.woff2?v=4.3.0',
           '/html/rs-plugin/font/revicons.woff?5510888',
@@ -48,7 +53,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v6'];
+  var cacheWhitelist = ['v7'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
