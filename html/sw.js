@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v10').then(function (cache) {
+        caches.open('v11').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -30,6 +30,8 @@ this.addEventListener("install", function (event) {
           '/html/img/embrace3.jpg',
           '/html/img/start/bg.jpg',
           '/html/img/bg.png',
+          '/html/img/bg.jpg',
+          '/html/img/send-icon.png',
           '/html/img/avatar/ava_11.jpg',
           '/html/img/avatar/ava_12.jpg',
           '/html/img/avatar/ava_13.jpg',
@@ -52,7 +54,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v10'];
+  var cacheWhitelist = ['v11'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
