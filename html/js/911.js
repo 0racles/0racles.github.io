@@ -72,7 +72,7 @@ event.waitUntil(() =>
 
 });*/
 
-initiate_sw =function () {
+initiate_sw = function () {
   var source = new Eventsource("demo_sse.php");
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
@@ -457,7 +457,7 @@ test_see = function () {
     //mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
-    //initiate_sw();
+    initiate_sw();
     invite_contact.addEventListener("click", invite_contact_func);
     asr();
   };
