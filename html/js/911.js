@@ -106,7 +106,7 @@ this.addEventListener("push", event => {
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
- }));
+ });
 
  this.onpush = function (event) {
    if(event.data) {
