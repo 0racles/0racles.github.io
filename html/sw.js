@@ -1,13 +1,13 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v15').then(function (cache) {
+        caches.open('v14').then(function (cache) {
          return cache.addAll([
           '/html/', 
           '/html/index.html',
           '/html/manifest.json',
           '/html/emergency.html',
-          'bower_components/angular/angular.js',
-          'bower_components/angular-chat/angular-chat.js',
+          '/html/bower_components/angular/angular.js',
+          '/html/bower_components/angular-chat/angular-chat.js',
           '/html/js/911.js', 
           '/html/js/all_scr.js',
           '/html/js/app.js',
@@ -57,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v15'];
+  var cacheWhitelist = ['v14'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
