@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v5').then(function (cache) {
+        caches.open('v6').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -8,6 +8,7 @@ this.addEventListener("install", function (event) {
           '/html/js/911.js', 
           '/html/js/all_scr.js',
           '/html/js/app.js',
+          '/html/js/names.js',
           '/html/js/bootstrap.min.js',
           '/html/js/emergency.js',
           '/html/js/wow.min.js',
@@ -47,7 +48,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v5'];
+  var cacheWhitelist = ['v6'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
