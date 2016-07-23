@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v13').then(function (cache) {
+        caches.open('v14').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -55,7 +55,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v13'];
+  var cacheWhitelist = ['v14'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -71,7 +71,9 @@ this.addEventListener('activate', function(event) {
 
 this.addEventListener('fetch', function (event) {
   event.respondWith(
-    caches.match(event.request)
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request);
+    })
     );
 });
 
