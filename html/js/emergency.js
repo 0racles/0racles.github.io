@@ -14,6 +14,28 @@ get_user_position,
 z = 0,
 newLocation,
 
+initiate_sw2 = function () {
+  var source = new Eventsource("demo_sse.php");
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
+    console.log("you have succesfully registered. Scope is " + reg.scope);
+    reg.pushManager.subscribe().then(function (pushSubscription) {
+      console.log(pushSubscription.endpoint);
+    })
+  }).catch(function(error) { 
+    console.log('Registration failed with ' + error);
+   }); 
+ }
+
+ this.onpush = function (event) {
+   if(event.data) {
+    console.log(event.data);
+   }
+ }
+ // send the push notification
+},
+
+
 initialize_geo = function (callback) {
     
     mapOptions = {
@@ -142,6 +164,7 @@ load_user_photo2 = function  () {
 
   init = function () {
    google.maps.event.addDomListener(window, "load", initialize_geo(get_user_position));
+   initiate_sw2();
    //chat_button.addEventListener("click", replace_comment_sec);
   };
 
