@@ -98,9 +98,9 @@ this.addEventListener("push", event => {
 });  
 
 this.addEventListener("notificationclick", event => {
-event.waitUntil(() => 
+event.waitUntil(() => {
    event.notification.close();
-  )
+  })
 
 });
 
