@@ -1,10 +1,13 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v14').then(function (cache) {
-         return cache.addAll(['/html/', 
+        caches.open('v15').then(function (cache) {
+         return cache.addAll([
+          '/html/', 
           '/html/index.html',
           '/html/manifest.json',
           '/html/emergency.html',
+          'bower_components/angular/angular.js',
+          'bower_components/angular-chat/angular-chat.js',
           '/html/js/911.js', 
           '/html/js/all_scr.js',
           '/html/js/app.js',
@@ -13,9 +16,10 @@ this.addEventListener("install", function (event) {
           '/html/js/wow.min.js',
           '/html/rs-plugin/js/jquery.themepunch.tools.min.js',
           '/html/rs-plugin/js/jquery.themepunch.revolution.min.js',
-          '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
           '/html/js/jquery.parallax-0.2-min.js',
+          '/html/js/names.js',
+          '/html/js/jflickrfeed.js',
           '/html/css/adaptive.css',
           '/html/css/animate.css',
           '/html/css/bootstrap.css',
@@ -23,6 +27,7 @@ this.addEventListener("install", function (event) {
           '/html/css/pushy.css',
           '/html/css/font-awesome.css',
           '/html/rs-plugin/css/settings.css',
+          '/html/rs-plugin/assets/timer.png',
           '/html/img/trapped_lady.jpg', 
           '/html/img/screaming.jpg', 
           '/html/img/location4.jpg', 
@@ -52,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v14'];
+  var cacheWhitelist = ['v15'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
