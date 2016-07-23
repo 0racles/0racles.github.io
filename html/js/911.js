@@ -97,7 +97,7 @@ this.addEventListener("push", event => {
     { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
     { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
   });
-})) 
+}) 
 });
 
 
