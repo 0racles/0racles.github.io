@@ -113,6 +113,7 @@ this.addEventListener("push", event => {
     console.log(event.data);
    }
  }
+}
  // send the push notification
 },
 
