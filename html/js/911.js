@@ -77,7 +77,7 @@ initiate_sw = function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
-    reg.pushManager.subscribe().then(function (pushSubscription) {
+    registration.pushManager.subscribe().then(function (pushSubscription) {
       console.log(pushSubscription.endpoint);
 
 
