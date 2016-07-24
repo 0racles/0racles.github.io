@@ -81,7 +81,7 @@ if ('serviceWorker' in navigator) {
       //console.log(pushSubscription.endpoint);
 
 
-this.addEventListener("push", event => {
+/*this.addEventListener("push", event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);
@@ -98,9 +98,9 @@ this.addEventListener("push", event => {
     { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
   });
 }) 
-});
+});*/
 
-
+//})
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
