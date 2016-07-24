@@ -77,7 +77,7 @@ initiate_sw = function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
-    registration.pushManager.subscribe().then(function (pushSubscription) {
+    reg.pushManager.subscribe().then(function (pushSubscription) {
       console.log(pushSubscription.endpoint);
 
 
@@ -88,7 +88,7 @@ this.addEventListener("push", event => {
      } 
      return fetch("demo_sse.php").then(response => response.json());
 }).then(data => {
- return this.registration.showNotification(title, {
+ return this.reg.showNotification(title, {
     body : 'help me',
     icon : 'screaming.jpg',
     vibrate: [200, 100, 200, 100, 400],
