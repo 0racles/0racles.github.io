@@ -99,7 +99,7 @@ if ('serviceWorker' in navigator) {
       //console.log(pushSubscription.endpoint);
 
 
-  }).catch(function(error) { 
+  /*}).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
  //});
