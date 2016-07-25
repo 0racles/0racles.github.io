@@ -102,7 +102,7 @@ if ('serviceWorker' in navigator) {
 
 
 
-/*this.addEventListener("push", event => {
+this.addEventListener("push", event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);
@@ -124,7 +124,7 @@ if ('serviceWorker' in navigator) {
 
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
-   }); */
+   }); 
  //});
 
  /*this.onpush = function (event) {
