@@ -88,7 +88,7 @@ this.addEventListener("push", event => {
      } 
      return fetch("demo_sse.php").then(response => response.json());
 }).then(data => {
- return this.reg.showNotification(title, {
+ return reg.showNotification(title, {
     body : 'help me',
     icon : 'screaming.jpg',
     vibrate: [200, 100, 200, 100, 400],
