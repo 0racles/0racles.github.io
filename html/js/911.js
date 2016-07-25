@@ -77,11 +77,31 @@ initiate_sw = function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
+    
+    
+    if (notification.permission !== 'granted') {
+      console.log('the user has not granted notification');
+      return;
+    }
+
+    navigator.serviceWorker.ready.then(function(registration) { 
+      registration.pushManager.getSubscription().then(function(subscription) {
+        if (!subscription) {
+          pushManager.subscribe();
+          return;
+        }
+      }).catch(function(Error) { console.log('there was an ' + Error);
+    });
+  });
+ }   
     //reg.pushManager.subscribe().then(function (pushSubscription) {
       //console.log(pushSubscription.endpoint);
 
 
-this.addEventListener("push", event => {
+
+
+
+/*this.addEventListener("push", event => {
    event.waitUntil(() => {
      if (event.data) {
       return Promise.resolve(event.data);
@@ -103,7 +123,7 @@ this.addEventListener("push", event => {
 
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
-   }); 
+   }); */
  //});
 
  /*this.onpush = function (event) {
