@@ -77,7 +77,7 @@ initiate_sw = function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
-    
+    }
     
     if (Notification.permission !== 'granted') {
       console.log('the user has not granted notification');
