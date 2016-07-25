@@ -88,7 +88,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(function(reg) { 
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
-          pushManager.subscribe();
+          reg.pushManager.subscribe();
           return;
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
