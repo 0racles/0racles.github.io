@@ -88,7 +88,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(function(reg) { 
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
-          reg.pushManager.subscribe();
+          reg.pushManager.subscribe({userVisibilityOnly :true});
           return;
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
@@ -99,39 +99,16 @@ if ('serviceWorker' in navigator) {
       //console.log(pushSubscription.endpoint);
 
 
-
-
-
-this.addEventListener("push", event => {
-   event.waitUntil(() => {
-     if (event.data) {
-      return Promise.resolve(event.data);
-     } 
-     return fetch("demo_sse.php").then(response => response.json());
-}).then(data => {
- return reg.showNotification(title, {
-    body : 'help me',
-    icon : 'screaming.jpg',
-    vibrate: [200, 100, 200, 100, 400],
-    tag : 'request',
-    actions : [
-    { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
-    { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
-  });
-}) 
-});
-
-
   }).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
  //});
 
- this.onpush = function (event) {
+ /*this.onpush = function (event) {
    if(event.data) {
     console.log(event.data);
    }
- }
+ }*/
 
  // send the push notification
 },
