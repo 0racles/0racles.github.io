@@ -93,7 +93,7 @@ if ('serviceWorker' in navigator) {
       }).catch(function(Error) { console.log('there was an ' + Error);
     });
   });
- }   
+ 
     //reg.pushManager.subscribe().then(function (pushSubscription) {
       //console.log(pushSubscription.endpoint);
 
