@@ -77,6 +77,7 @@ initiate_sw = function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
+  });
     }
     
     if (Notification.permission !== 'granted') {
@@ -131,7 +132,7 @@ if ('serviceWorker' in navigator) {
     console.log(event.data);
    }
  }*/
-}
+
  // send the push notification
 },
 
