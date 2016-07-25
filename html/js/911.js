@@ -79,13 +79,13 @@ if ('serviceWorker' in navigator) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
     
     
-    if (notification.permission !== 'granted') {
+    if (Notification.permission !== 'granted') {
       console.log('the user has not granted notification');
       return;
     }
 
-    navigator.serviceWorker.ready.then(function(registration) { 
-      registration.pushManager.getSubscription().then(function(subscription) {
+    navigator.serviceWorker.ready.then(function(reg) { 
+      reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
           pushManager.subscribe();
           return;
