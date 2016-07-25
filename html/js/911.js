@@ -127,11 +127,11 @@ this.addEventListener("push", event => {
    }); 
  //});
 
- /*this.onpush = function (event) {
+ this.onpush = function (event) {
    if(event.data) {
     console.log(event.data);
    }
- }*/
+ }
 
  // send the push notification
 },
