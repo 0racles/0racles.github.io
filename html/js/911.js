@@ -88,8 +88,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(function(reg) { 
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
-          reg.pushManager.subscribe({userVisibilityOnly :true});
-          return;
+          alert('subscribing to this service lets you see which of your friends need your help at the moment');
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
     });
