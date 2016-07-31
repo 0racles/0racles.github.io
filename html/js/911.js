@@ -89,7 +89,7 @@ if ('serviceWorker' in navigator) {
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
           isPushEnabled = false;
-          alert('subscribe for notification');
+          console.log('subscribe for notification');
           return;
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
