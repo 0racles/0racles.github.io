@@ -88,9 +88,10 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(function(reg) { 
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
-          isPushEnabled = false;
-          console.log('subscribe for notification');
-          return;
+          return reg.pushManager.subscribe({
+            userVisibility : true,
+            applicationServerKey : 'window.GoogleSamples.Config.gcmAPIKey'
+          })
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
     });
