@@ -79,7 +79,7 @@ initiate_sw = function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
     reg.pushManager.getSubscription(function(sub) {
-      console.log('subscription details: ' + sub);
+      console.log('subscription details', sub);
     })
   });
     }
