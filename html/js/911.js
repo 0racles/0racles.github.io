@@ -82,6 +82,7 @@ if ('serviceWorker' in navigator) {
     }
     
     if (Notification.permission !== 'granted') {
+      autorized5.classList.remove('none');
       console.log('the user has not granted notification');
       return;
     }
@@ -89,7 +90,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(function(reg) { 
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
-          autorized5.classList.remove('none');
+
           return;
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
