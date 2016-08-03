@@ -29,6 +29,7 @@ mic = forms[2].getElementsByTagName("a")[0].lastElementChild,
 xhr = new XMLHttpRequest(),
 img = '<img accept="image/*">',
 body = document.body,
+toggle_on = document.querySelector('.toggle-on'),
 //mic = document.querySelectorAll(".mic")[0],
 open_settings,
 perform_validation,
@@ -77,7 +78,9 @@ initiate_sw = function () {
   //var source = new EventSource("demo_sse.php");
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
-    console.log("you have succesfully registered. Scope is " + reg.scope);
+    reg.pushManager.getSubscription(function(sub) {
+      console.log('subscription details: ' + sub);
+    })
   });
     }
     
@@ -462,6 +465,16 @@ success_msg = function () {
   },
 
 test_see = function () {
+  /*if ('showNotification' in reg) {
+    navigator.serviceworker.ready.then(function(registration) {
+       if (!subscription) {
+        return registration.pushManager.subscribe({
+          userVisibiltyOnly : true,
+          applicationServerKey : 
+        })
+       }
+    })
+  }*/
 
 },
 
@@ -485,6 +498,7 @@ test_see = function () {
     initiate_sw();
     invite_contact.addEventListener("click", invite_contact_func);
     send_invite.addEventListener('click', user_notify);
+    //toggle_on.addEventListener('click', test_see);
     asr();
   };
 
