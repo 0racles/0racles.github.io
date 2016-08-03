@@ -5,6 +5,7 @@ autorized = document.getElementById("autorized"),
 autorized2 = document.getElementById("autorized2"),
 autorized3 = document.getElementById("autorized3"),
 autorized4 = document.getElementById("autorized4"),
+autorized5 = document.getElementById("autorized5"),
 validate1 = document.getElementById("validate1"),
 validate2 =document.getElementById("validate2"),
 play =document.querySelectorAll(".play"),
@@ -88,10 +89,8 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(function(reg) { 
       reg.pushManager.getSubscription().then(function(subscription) {
         if (!subscription) {
-          return reg.pushManager.subscribe({
-            userVisibilityOnly : true,
-
-          })
+          autorized5.classList.remove('none');
+          return;
         }
       }).catch(function(Error) { console.log('there was an ' + Error);
     });
