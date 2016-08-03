@@ -82,7 +82,6 @@ if ('serviceWorker' in navigator) {
     }
     
     if (Notification.permission !== 'granted') {
-      autorized5.classList.remove('none');
       console.log('the user has not granted notification');
       return;
     }
@@ -426,7 +425,7 @@ compose_msg = function (x) {
   well_done : "<span class='fa fa-thumbs-o-up' style='color:green;font-size:40px;font-weight:500;position:absolute;left:40%;'></span><br><br><p class='container page_info_2' id='take_text' style='text-align:center;'>Message succesfully sent</p>",
   button1 : "<a href='#' class='butt' style='text-decoration : none;' onclick='success_msg()' id='first_btn'>send</a>",
  button2 : "<a href='emergency.html' class='btn btn-primary' style='text-decoration : none;' onclick='success_msg()' id='fin_btn'>Well Done, Continue</a>",
-  one : "<i class='fa fa-hand-o-left back' id='one' title='back'></i>", 
+  one : "<i class='fa fa-hand-o-left back' id='one' title='back' onclick='user_notify()'></i>", 
   two : "<i class='fa fa-thumbs-o-up done' id='two' title='done'></i>",
   List : "<ul style='list-style:none;'><li><span>0</span> Messages sent</li> <li><span>0</span> friends being Watched</li> <li><span>0</span> friend Watching you</li></ul>",
   div : "<div class='add-btn' title='add more friends'>+</div>         <div class='minus-btn' title='remove friends'>-</div>"
@@ -446,6 +445,10 @@ success_msg = function () {
     form_modal.removeChild(form_childs[i]);
     }
     message_sent(form_modal);
+  },
+
+  user_notify = function () {
+    autorized5.classList.remove('none');
   },
 
   message_sent = function (y) {
