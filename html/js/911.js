@@ -74,47 +74,18 @@ event.waitUntil(() =>
 
 });*/
 
-initiate_sw = function () {
-  //var source = new EventSource("demo_sse.php");
+initiate_sw =function () {
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
-    reg.pushManager.getSubscription(function(sub) {
-      console.log('subscription details', sub);
-    })
-  });
-    }
-    
-    if (Notification.permission !== 'granted') {
-      console.log('the user has not granted notification');
-      return;
-    }
-
-    navigator.serviceWorker.ready.then(function(reg) { 
-      reg.pushManager.getSubscription().then(function(subscription) {
-        if (!subscription) {
-
-          return;
-        }
-      }).catch(function(Error) { console.log('there was an ' + Error);
+  navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
+    reg.pushManager.getSubscription().then(function(sub) {
+      console.log('subscription details' sub);
+      console.log("you have succesfully registered. Scope is " + reg.scope);
     });
-  });
- 
-    //reg.pushManager.subscribe().then(function (pushSubscription) {
-      //console.log(pushSubscription.endpoint);
-
-
-  /*}).catch(function(error) { 
+    
+  }).catch(function(error) { 
     console.log('Registration failed with ' + error);
    }); 
- //});
-
- /*this.onpush = function (event) {
-   if(event.data) {
-    console.log(event.data);
-   }
- }*/
-
- // send the push notification
+ }
 },
 
 open_settings = function() {
