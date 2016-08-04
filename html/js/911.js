@@ -77,9 +77,10 @@ event.waitUntil(() =>
 initiate_sw =function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
-    reg.pushManager.getSubscription().then(function(sub) {
+    console.log("you have succesfully registered. Scope is " + reg.scope);
+    /*reg.pushManager.getSubscription().then(function(sub) {
       console.log("you have succesfully registered. Scope is " + reg.scope + " and subscription is " + sub);
-    });
+    });*/
     
   }).catch(function(error) {  
     console.log('Registration failed with ' + error);
