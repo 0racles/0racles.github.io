@@ -77,10 +77,28 @@ event.waitUntil(() =>
 initiate_sw =function () {
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
-    console.log("you have succesfully registered. Scope is " + reg.scope);
-    /*reg.pushManager.getSubscription().then(function(sub) {
+    reg.pushManager.getSubscription().then(function(sub) {
       console.log("you have succesfully registered. Scope is " + reg.scope + " and subscription is " + sub);
-    });*/
+    // starting new addition
+        if ('showNotification' in serviceWorkerRegistration.prototype) {
+          navigator.serviceworker.ready.then(function(reg) {
+            if (!sub) {
+              reg.pushManager.subscribe({
+                userVisibilityOnly : true,
+                applicationServerKey : window.base64UrlToUnit8Array('AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto')
+              })
+              return sub;
+            }
+          }).then(function(sub) { 
+            console.log('the status of subscription is ' + sub)
+          }).catch(function(Error) { 
+            console.log('there was an error due to ' + Error)
+          })
+        }
+      
+
+      // ending new addition
+    });
     
   }).catch(function(error) {  
     console.log('Registration failed with ' + error);
