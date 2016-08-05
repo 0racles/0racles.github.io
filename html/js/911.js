@@ -80,7 +80,7 @@ if ('serviceWorker' in navigator) {
     reg.pushManager.getSubscription().then(function(sub) {
       console.log("you have succesfully registered. Scope is " + reg.scope + " and subscription is " + sub);
     // starting new addition
-        if ('showNotification' in serviceWorkerRegistration.prototype) {
+        if ('showNotification' in reg.prototype) {
           navigator.serviceworker.ready.then(function(reg) {
             if (!sub) {
               reg.pushManager.subscribe({
