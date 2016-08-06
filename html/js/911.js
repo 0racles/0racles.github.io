@@ -97,7 +97,7 @@ if ('serviceWorker' in navigator) {
               body : JSON.stringify(sub)
             }
 
-            return fetch('https://0racles.github.io/html/index.html', fetchOptions)
+            return fetch('demo_sse.php', fetchOptions)
 
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
