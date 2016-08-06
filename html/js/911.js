@@ -81,9 +81,9 @@ if ('serviceWorker' in navigator) {
       console.log("you have succesfully registered. Scope is " + reg.scope + " and subscription is " + sub);
     // starting new addition
         if ('showNotification' in ServiceWorkerRegistration.prototype) {
-          navigator.serviceworker.ready.then(function(reg) {
+          navigator.serviceWorker.ready.then(function(reg) {
             if (!sub) {
-              reg.pushManager.subscribe({
+             return reg.pushManager.subscribe({
                 userVisibilityOnly : true,
                 applicationServerKey : window.base64UrlToUnit8Array('AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto')
               })
