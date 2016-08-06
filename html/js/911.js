@@ -85,7 +85,7 @@ if ('serviceWorker' in navigator) {
             if (!sub) {
              return reg.pushManager.subscribe({
                 userVisibilityOnly : true,
-                applicationServerKey : window.base64UrlToUint8Array('AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto')
+                applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'
               })
               return sub;
             }
