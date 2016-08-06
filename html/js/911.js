@@ -91,6 +91,13 @@ if ('serviceWorker' in navigator) {
             }
           }).then(function(sub) { 
             console.log('the status of subscription is ' + JSON.stringify(sub))
+            var fetchOptions = {
+              method : 'post',
+              headers : new Headers({'Content-Type' : 'application/json'}),
+              body : JSON.stringify(sub)
+            }
+
+            return fetch('https://0racles.github.io/html/index.html', fetchOptions)
 
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
