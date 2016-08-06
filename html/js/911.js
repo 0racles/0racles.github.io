@@ -90,7 +90,8 @@ if ('serviceWorker' in navigator) {
               return sub;
             }
           }).then(function(sub) { 
-            console.log('the status of subscription is ' + sub)
+            console.log('the status of subscription is ' + JSON.stringify(sub))
+
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
           })
