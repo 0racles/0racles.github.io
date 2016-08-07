@@ -84,20 +84,20 @@ if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then(function(reg) {
             if (!sub) {
              return reg.pushManager.subscribe({
-                userVisibleOnly : true,
-                applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'
+                userVisibleOnly : true
+                //applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'
               })
               return sub;
             }
           }).then(function(sub) { 
-            console.log('the status of subscription is ' + JSON.stringify(sub))
-            var fetchOptions = {
+            console.log('endpoint: ' sub.endpoint);
+            /*var fetchOptions = {
               method : 'post',
               headers : new Headers({'Content-Type' : 'application/json'}),
               body : JSON.stringify(sub)
             }
 
-            return fetch('demo_sse.php', fetchOptions)
+            return fetch('https://0racles.github.io/html/index.html', fetchOptions)*/
 
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
