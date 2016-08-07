@@ -90,7 +90,7 @@ if ('serviceWorker' in navigator) {
               return sub;
             }
           }).then(function(sub) { 
-            console.log('endpoint: ' sub.endpoint);
+            console.log('endpoint: ' + sub.endpoint)
             /*var fetchOptions = {
               method : 'post',
               headers : new Headers({'Content-Type' : 'application/json'}),
