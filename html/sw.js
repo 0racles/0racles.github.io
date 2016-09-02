@@ -90,6 +90,7 @@ this.addEventListener("push", event => {
     body : 'help me',
     icon : 'screaming.jpg',
     vibrate: [200, 100, 200, 100, 400],
+    // sound : 'enter sound file here',
     tag : 'request',
     actions : [
     { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 

@@ -83,21 +83,21 @@ if ('serviceWorker' in navigator) {
         if ('showNotification' in ServiceWorkerRegistration.prototype) {
           navigator.serviceWorker.ready.then(function(reg) {
             if (!sub) {
-             return reg.pushManager.subscribe({
+              reg.pushManager.subscribe({
                 userVisibleOnly : true
-                //applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'
+                applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'
               })
               return sub;
             }
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
-            /*var fetchOptions = {
+            var fetchOptions = {
               method : 'post',
               headers : new Headers({'Content-Type' : 'application/json'}),
               body : JSON.stringify(sub)
             }
 
-            return fetch('https://0racles.github.io/html/index.html', fetchOptions)*/
+            return fetch(' https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHla…V1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)*/
 
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
