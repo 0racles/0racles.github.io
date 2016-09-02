@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v14').then(function (cache) {
+        caches.open('v15').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -17,6 +17,8 @@ this.addEventListener("install", function (event) {
           '/html/rs-plugin/assets/timer.png',
           '/html/js/jquery.min.js',
           '/html/js/jquery.parallax-0.2-min.js',
+          '/html/scripts/wmb.py',
+          '/html/scripts/wmb.txt',
           '/html/css/adaptive.css',
           '/html/css/animate.css',
           '/html/css/bootstrap.css',
@@ -55,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v14'];
+  var cacheWhitelist = ['v15'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
