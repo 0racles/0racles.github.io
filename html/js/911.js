@@ -82,7 +82,7 @@ if ('serviceWorker' in navigator) {
     // starting new addition
         if ('showNotification' in ServiceWorkerRegistration.prototype) {
           navigator.serviceWorker.ready.then(function(reg) {
-            if (!sub) {
+            if (sub) {
               reg.pushManager.subscribe({
                 userVisibleOnly : true,
                 applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'
