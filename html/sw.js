@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v26').then(function (cache) {
+        caches.open('v1').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -57,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v26'];
+  var cacheWhitelist = ['v1'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -86,7 +86,7 @@ this.addEventListener("push", event => {
      if (event.data) {
       return Promise.resolve(event.data);
      } 
-     return fetch("demo_sse.php").then(response => response.json());
+     return fetch("https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd").then(response => response.json());
 }).then(data => {
  return reg.showNotification(title, {
     body : 'help me',
