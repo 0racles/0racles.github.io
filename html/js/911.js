@@ -83,10 +83,10 @@ if ('serviceWorker' in navigator) {
         if ('showNotification' in ServiceWorkerRegistration.prototype) {
           navigator.serviceWorker.ready.then(function(reg) {
             if (sub) {
-              reg.pushManager.subscribe({
+              reg.pushManager.subscribe([
                 userVisibleOnly : true,
                 applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto' /*'AIzaSyB2AmHL6YOPS-JrfzFT8UcuWmKQnptBYLM'*/
-              })
+              ])
               return sub;
             }
           }).then(function(sub) { 
