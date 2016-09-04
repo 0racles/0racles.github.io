@@ -84,8 +84,8 @@ if ('serviceWorker' in navigator) {
           navigator.serviceWorker.ready.then(function(reg) {
             if (sub) {
               reg.pushManager.subscribe([
-                userVisibleOnly : true,
-                applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto' /*'AIzaSyB2AmHL6YOPS-JrfzFT8UcuWmKQnptBYLM'*/
+                {userVisibleOnly : true},
+                {applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'} /*'AIzaSyB2AmHL6YOPS-JrfzFT8UcuWmKQnptBYLM'*/
               ])
               return sub;
             }
