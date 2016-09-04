@@ -91,6 +91,7 @@ if ('serviceWorker' in navigator) {
             }
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
+            console.log('api_key: ' + sub.getKey())
             console.log(JSON.stringify(sub))
             var fetchOptions = {
               method : 'post',
