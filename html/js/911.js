@@ -91,15 +91,16 @@ if ('serviceWorker' in navigator) {
             }
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
-            console.log('api_key: ' + sub.getKey())
             console.log(JSON.stringify(sub))
             var fetchOptions = {
               method : 'post',
               headers : new Headers({'Content-Type' : 'application/json'}),
               body : JSON.stringify(sub)
             }
-
-            return fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)
+            // for firefox
+            return fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT", fetchOptions)
+            // for chrome
+            //return fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)
 
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
