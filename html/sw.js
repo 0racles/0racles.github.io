@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v5').then(function (cache) {
+        caches.open('v6').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -57,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v5'];
+  var cacheWhitelist = ['v6'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -86,7 +86,7 @@ this.addEventListener("push", event => {
      if (event.data) {
       return Promise.resolve(event.data);
      } 
-     return fetch("https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd").then(response => response.json());
+     return fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT").then(response => response.json());
 }).then(data => {
  return reg.showNotification(title, {
     body : 'help me',
