@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v9').then(function (cache) {
+        caches.open('v10').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -57,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v9'];
+  var cacheWhitelist = ['v10'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -89,7 +89,7 @@ this.addEventListener("push", function(event) {
               if (response !== 200) {
                   console.log("push notificaation failed")
               } else {
-                  return reg.showNotification(title, {
+                  return event.showNotification(title, {
                         body : 'help me',
                         icon : 'screaming.jpg',
                         vibrate: [200, 100, 200, 100, 400],
