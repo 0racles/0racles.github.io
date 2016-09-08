@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v8').then(function (cache) {
+        caches.open('v9').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -57,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v8'];
+  var cacheWhitelist = ['v9'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -100,7 +100,8 @@ this.addEventListener("push", function(event) {
                         { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
                       });
                      }
-                   } 
+                   }) 
+                  )});
     //} else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") { 
    // for chrome
       /*    fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd').then(function(response) {
@@ -119,5 +120,5 @@ this.addEventListener("push", function(event) {
                       });
                      }
                    }
-          })
-        });       
+          })*/
+               
