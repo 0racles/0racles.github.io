@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v7').then(function (cache) {
+        caches.open('v8').then(function (cache) {
          return cache.addAll(['/html/', 
           '/html/index.html',
           '/html/manifest.json',
@@ -57,7 +57,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v7'];
+  var cacheWhitelist = ['v8'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -84,7 +84,7 @@ this.addEventListener('fetch', function (event) {
 this.addEventListener("push", function(event) {
    event.waitUntil(
      //for firefox
-      if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0") {
+      //if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0") {
           fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT").then(function(response) { 
               if (response !== 200) {
                   console.log("push notificaation failed")
@@ -101,9 +101,9 @@ this.addEventListener("push", function(event) {
                       });
                      }
                    } 
-    } else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") { 
+    //} else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") { 
    // for chrome
-          fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd').then(function(response) {
+      /*    fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd').then(function(response) {
               if (response !== 200) {
                   console.log("push notificaation failed")
               } else {
