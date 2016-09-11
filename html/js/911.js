@@ -82,10 +82,10 @@ if ('serviceWorker' in navigator) {
     // starting new addition
         if ('showNotification' in ServiceWorkerRegistration.prototype) {
           navigator.serviceWorker.ready.then(function(reg) {
-            if (sub) {
+            if (!sub) {
               reg.pushManager.subscribe([
                 {userVisibleOnly : true},
-                {applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'} /*'AIzaSyB2AmHL6YOPS-JrfzFT8UcuWmKQnptBYLM'*/
+                {applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'} 
               ])
               return sub;
             }
@@ -93,7 +93,7 @@ if ('serviceWorker' in navigator) {
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
             var fetchOptions = {
-              method : 'post',
+              method : 'Post',
               headers : new Headers({'Content-Type' : 'application/json'}),
               body : JSON.stringify(sub)
             }
