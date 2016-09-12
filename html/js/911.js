@@ -92,7 +92,7 @@ if ('serviceWorker' in navigator) {
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
-            console.log("using ajax to make a server call x5")
+            console.log("using ajax to make a server call x6")
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "HTTPS://154.118.31.147");
             xhr.setRequestHeader("Content-Type", "application/json")
@@ -113,7 +113,7 @@ if ('serviceWorker' in navigator) {
             xhr.send(JSON.stringify(sub));
             // for chrome
             } else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") {
-            xhr.send(JSON.stringify(subscribeObj));
+            xhr.send(JSON.stringify(sub));
             // return fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)
           }
           }).catch(function(Error) { 
