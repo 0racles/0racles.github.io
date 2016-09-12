@@ -92,7 +92,7 @@ if ('serviceWorker' in navigator) {
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
-            console.log("using ajax to make a server call x4")
+            console.log("using ajax to make a server call x5")
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "HTTPS://154.118.31.147");
             xhr.setRequestHeader("Content-Type", "application/json")
@@ -110,7 +110,7 @@ if ('serviceWorker' in navigator) {
             // for firefox
             if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0") {
             //return fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT", fetchOptions)
-            xhr.send(JSON.stringify(subscribeObj));
+            xhr.send(JSON.stringify(sub));
             // for chrome
             } else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") {
             xhr.send(JSON.stringify(subscribeObj));
