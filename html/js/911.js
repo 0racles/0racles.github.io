@@ -92,7 +92,7 @@ if ('serviceWorker' in navigator) {
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
-            console.log("This is my fathers world")
+            console.log("what do you take me for")
             var fetchOptions = {
               method : 'POST',
               headers : new Headers({'Content-Type' : 'application/json'}),
