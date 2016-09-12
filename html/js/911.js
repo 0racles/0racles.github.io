@@ -95,7 +95,7 @@ if ('serviceWorker' in navigator) {
             var fetchOptions = {
               method : 'POST',
               headers : new Headers({'Content-Type' : 'application/json'}),
-              body : JSON.stringify(sub)
+              body : new Uint8Array(sub) //JSON.stringify(sub)
             }
             // for firefox
             if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0") {
