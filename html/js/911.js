@@ -92,18 +92,29 @@ if ('serviceWorker' in navigator) {
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
-            console.log("what do you take me for")
-            var fetchOptions = {
+            console.log("using ajax to make a server call")
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "HTTPS://154.118.31.147");
+            xhr.setRequestHeader("Content-Type", "application/json")
+
+            sub = {
+              'statusType' : 'statusType',
+               endpoint : endpoint,
+               key : btoa(String.fromCharCode.apply(null, new Uint8Array(key)))
+            }
+           /* var fetchOptions = {
               method : 'POST',
               headers : new Headers({'Content-Type' : 'application/json'}),
               body : new Uint8Array(sub) //JSON.stringify(sub)
-            }
+            }*/
             // for firefox
             if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0") {
-            return fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT", fetchOptions)
+            //return fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT", fetchOptions)
+            xhr.send(JSON.stringify(subscribeObj));
             // for chrome
             } else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") {
-            return fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)
+            xhr.send(JSON.stringify(subscribeObj));
+            // return fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)
           }
           }).catch(function(Error) { 
             console.log('there was an error due to ' + Error)
