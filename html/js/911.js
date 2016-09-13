@@ -92,9 +92,9 @@ if ('serviceWorker' in navigator) {
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
-            console.log("using ajax to make a server call x6")
+            console.log("using ajax to make a server call x7")
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "HTTPS://154.118.31.147");
+            xhr.open("POST", "https://192.168.8.107");
             xhr.setRequestHeader("Content-Type", "application/json")
 
             sub = {
