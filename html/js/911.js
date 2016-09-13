@@ -92,14 +92,14 @@ if ('serviceWorker' in navigator) {
           }).then(function(sub) { 
             console.log('endpoint: ' + sub.endpoint)
             console.log(JSON.stringify(sub))
-            console.log("using ajax to make a server call x7")
+            console.log("using ajax to make a server call x8")
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "https://192.168.8.107");
             xhr.setRequestHeader("Content-Type", "application/json")
 
             sub = {
               'statusType' : 'statusType',
-               endpoint : 'https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd',
+               endpoint : 'https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT',
                key : btoa(String.fromCharCode.apply(null, new Uint8Array(sub.key)))
             }
            /* var fetchOptions = {
