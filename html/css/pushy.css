@@ -44,6 +44,8 @@ transition:0.3s;
 z-index: 99999999;
 background: #218DEA;
 text-align: center;
+position: relative;
+left : 38%;
 }
 
 .add-btn span {
@@ -84,6 +86,8 @@ transition:0.3s;
 z-index: 99999999;
 background: #E73931;
 text-align: center;
+position: relative;
+left : 39%;
 }
 
 .minus-btn span {
