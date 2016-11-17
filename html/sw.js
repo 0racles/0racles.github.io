@@ -56,7 +56,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v16'];
+  var cacheWhitelist = ['v17'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
