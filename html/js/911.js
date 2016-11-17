@@ -441,7 +441,7 @@ compose_msg = function (x) {
   textarea : "<textarea class='text_area' placeholder='write message here....'></textarea>",
   well_done : "<span class='fa fa-thumbs-o-up' style='color:green;font-size:40px;font-weight:500;position:absolute;left:40%;'></span><br><br><p class='container page_info_2' id='take_text' style='text-align:center;'>Message succesfully sent</p>",
   button1 : "<a href='#' class='butt' style='text-decoration : none;' onclick='success_msg()' id='first_btn'>send</a>",
- button2 : "<a href='emergency.html' class='btn btn-primary' style='text-decoration : none;' onclick='success_msg()' id='fin_btn'>Well Done, Continue</a>",
+ button2 : "<a href='emergency.html' class='btn btn-primary butt' style='text-decoration : none;' onclick='success_msg()' id='fin_btn'>Well Done, Continue</a>",
   one : "<i class='fa fa-hand-o-left back' id='one' title='back'></i>", 
   two : "<i class='fa fa-thumbs-o-up done' id='two' title='done'></i>",
   List : "<ul style='list-style:none;'><li><span>0</span> Messages sent</li> <li><span>0</span> friends being Watched</li> <li><span>0</span> friend Watching you</li></ul>",

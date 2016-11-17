@@ -1256,15 +1256,12 @@ a.green_btn:hover {
 }
 .green_btn_header {
     background: #202020;
-    padding: 6px 50px;
     color: #ffffff;
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 5px !important;
     display: block;
-    width: 180px;
-    text-align: center;
-    float: right;
-    margin: 9px;
+    width: 98% !important;
+	left : 3px;
     transition: 0.3s;
 }
 .green_btn_header:hover {
@@ -1448,8 +1445,13 @@ a.green_btn:hover {
 }
 
 .togg {
-    font-size: 65px;
+	display : block !important;
+	position : relative;
+	top : 10px;
+	left : 100px;
+    font-size: 35px !important;
     color : green;
+	text-outline: 2px 2px #ff0000;
 }
 
 
@@ -2853,19 +2855,24 @@ button.save {
 }
 
 .butt {
+  border-radius: 5px !important;
+  position: relative;
+  text-decoration: none;
+  top: 50px;
+  left : 3px;
+  width: 98% !important;
   background: #202020;
   padding: 6px 12px;
   font-size: 14px;
   font-weight: normal;
   color : #ffffff;   
   display: block;
-  width : 100px;
-  margin-left:10px;
 }
 
 .text_area {
     width: 250px;
     height: 150px;
+	top : 50px;
     border-radius: 5px;
     position: relative;
     margin: auto;
