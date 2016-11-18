@@ -2808,8 +2808,15 @@ span.username {
 /* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 User Input
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+form.chat-input {
+    position: relative;
+    order: 2;
+    height: 62px;
+    background: rgba(233,234,243,1.0);
+}
+
 form.chat-input input[type="text"] {
-     width: 80%;
+     width: 100%;
     color: rgba(32,40,70,0.9);
     padding: 20px;
     background: transparent;
