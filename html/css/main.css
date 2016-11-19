@@ -330,6 +330,12 @@ cursor: pointer;
     border: 2px solid #FFFFFF;
     padding: 6px;
 }
+/*  just a temp solution. To look  at the original mark up and adopt pattern */
+.toChange {
+    border-radius: 100px;
+    left: 90px;
+    position: relative;
+}
 
 .pushy .profile .avatar span {
     display: block;
