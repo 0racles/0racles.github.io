@@ -273,7 +273,31 @@ margin-top: 28px;
         border-radius: 3px;
     }
     .start_descrition {margin-top: -250px;}
-    .tp-banner-container {display: none !important;}
+    /*.tp-banner-container {display: none !important;}*/ /*removed this rule for content visibility in mobile devices*/
+
+.promo {
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    animation-name : move;
+    animation-duration : 40s;
+    animation-iteration-count : infinite;
+    animation-timing-function : linear;
+	zoom : 0.7;
+}
+
+@keyframes move {
+  0%, 100% {
+      background-position : top;
+   }
+  50% {
+      background-position : bottom;
+}
+}
     .categori_block .cat_item {
         width: 50%;
         float: left;

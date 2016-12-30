@@ -1,4 +1,26 @@
 var app = (function () {
+const applicationServerPublicKey = 'BHjL6KWAPgEMBadvySBHq2JmEGw1eW7DGXADVVKyXQPqNbLzBfxIcl64fo6bIZpJN9QOUzqOzmc_R3uWxSX2QFg';
+
+const pushButton = document.querySelector('.js-push-btn');
+
+let isSubscribed = false;
+let swRegistration = null;
+
+function urlB64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}	
+	
 var 
 i=0,
 autorized = document.getElementById("autorized"),
@@ -49,87 +71,59 @@ chunks = [],
 
 // push notification begin here
 
-/*this.addEventListener("push", event => {
-   event.waitUntil(() => {
-     if (event.data) {
-      return Promise.resolve(event.data);
-     } 
-     return fetch("demo_sse.php").then(response => response.json());
-).then(data => {
- return this.registration.showNotification(title, {
-    body : 'help me',
-    icon : 'screaming.jpg',
-    vibrate: [200, 100, 200, 100, 400],
-    tag : 'request',
-    actions : [
-    { action : "track", title : "wacth", icon : "fa fa-thumb-up"}, 
-    { action : "Ignore", title : "Ignore", icon : "fa fa-thumb-down"} ]
-  });
-});  // this is for the click event
-
-this.addEventListener("notificationclick", event => {
-event.waitUntil(() => 
-   event.notification.close();
-  )
-
-});*/
-
 initiate_sw =function () {
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/html/sw.js', {scope : '/html/'}).then(function (reg) {
-    reg.pushManager.getSubscription().then(function(sub) {
-      console.log("you have succesfully registered. Scope is " + reg.scope + " and subscription is " + sub);
-    // starting new addition
-        if ('showNotification' in ServiceWorkerRegistration.prototype) {
-          navigator.serviceWorker.ready.then(function(reg) {
-            if (sub) {
-              reg.pushManager.subscribe([
-                {userVisibleOnly : true},
-                {applicationServerKey : 'AIzaSyDlGjhrU1idWDLs_IUhu1dc2xh-Z_Kvvto'} 
-              ])
-              return sub;
-            }
-          }).then(function(sub) { 
-            console.log('endpoint: ' + sub.endpoint)
-            console.log(JSON.stringify(sub))
-            console.log("using ajax to make a server call x8")
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://192.168.8.107");
-            xhr.setRequestHeader("Content-Type", "application/json")
-
-            sub = {
-              'statusType' : 'statusType',
-               endpoint : 'https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT',
-               key : btoa(String.fromCharCode.apply(null, new Uint8Array(sub.key)))
-            }
-           /* var fetchOptions = {
-              method : 'POST',
-              headers : new Headers({'Content-Type' : 'application/json'}),
-              body : new Uint8Array(sub) //JSON.stringify(sub)
-            }*/
-            // for firefox
-            if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1; rv:48.0) Gecko/20100101 Firefox/48.0") {
-            //return fetch("https://updates.push.services.mozilla.com/wpush/v1/gAAAAABXpc44pT5ogGqBEcHwPWjGm50WXzUAPoAJDU_ab-TMq0wti6APsIK8xOSv8f7qiPOXjMrxek2jU2OGuM6B90hTf91Nig6HorHQewD_zc7RwImIIrou6n6NeBsBXMLLCuZJ0PBT", fetchOptions)
-            xhr.send(JSON.stringify(sub));
-            // for chrome
-            } else if (window.navigator.userAgent === "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36") {
-            xhr.send(JSON.stringify(sub));
-            // return fetch('https://android.googleapis.com/gcm/send/d3y_NLnWo9I:APA91bFLvMI40RNs8fCqHlaV1aWxS99q2x3EJCjo60wrHzie445d2jvw9N631RQNw59nmV1t9CUaGdBs2b8fxPXj2aYAYApPd', fetchOptions)
-          }
-          }).catch(function(Error) { 
-            console.log('there was an error due to ' + Error)
-          })
-        }
-      
-
-      // ending new addition
-    });
-    
+  if ('serviceWorker' in navigator && 'PushManager' in window) {
+	   console.log("service worker and push is supported!");
+  navigator.serviceWorker.register('sw.js').then(function (reg) {
+	 console.log('service worker is registered', reg);
+	 
+	swreg = reg;
+	initialize_ui();
   }).catch(function(error) {  
     console.log('Registration failed with ' + error);
    }); 
+ } else {
+	 console.warn('Push messaging is not supported');
  }
 },
+
+initialize_ui = function() {
+	swreg.pushManager.getSubscription().then(function(sub) {
+		isSubscribed = !(sub === null);
+		if (isSubscribed) {
+			console.log('User is subscribed');
+			//swreg.pushManager.unSubscribe();
+		} else {
+			// enable subscription button
+			console.log('user is not subscribed');
+			subscribeUser();
+		}
+	})
+},
+
+// subscribe user
+
+subscribeUser = function() {
+  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  swreg.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: applicationServerKey
+  })
+  .then(function(subscription) {
+    console.log('User is subscribed:', subscription);
+
+    //updateSubscriptionOnServer(subscription);
+
+    isSubscribed = true;
+
+   
+  })
+  .catch(function(err) {
+    console.log('Failed to subscribe the user: ', err);
+    
+  });
+},
+
 
 open_settings = function() {
    autorized.classList.remove("none");
@@ -515,6 +509,21 @@ test_see = function () {
     //toggle_on.addEventListener('click', test_see);
     asr();
   };
+  
+  function urlB64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
 
   return {
     init : init
