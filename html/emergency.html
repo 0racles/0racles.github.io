@@ -251,6 +251,36 @@ Mordovceva street, 6 (Up on"Semenovskaya"), 690091, Vladivostok</div>
 <i class="fa fa-thumbs-o-up"></i>698 likes
 </div>-->
 </div>
+<div class="chat-container" ng-controller="BasicController as chat">
+
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <!-- Chat Messages -->
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+       <div class="chat-messages">
+            <!--<div class="chat-header">
+                <div class="angularjs-chat-logo"></div>
+                WATCHmyBACK Chat
+            </div>-->
+            <div ng-repeat="message in chat.messages">
+                <div class="sent-message-{{ message.self }}">
+                    <span class="username">{{ message.user.name }}:</span>
+                    {{ message.data }}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <!-- User Input -->
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <form ng-submit="chat.send()" class="chat-input" id="chat-input">
+            <input type="text" ng-model="chat.textbox" id="text-box" autofocus>
+            <input type="submit" class="send-icon" value=" ">
+            <input type="submit" value=" "
+                class="sent-indicator {{ chat.status }}">
+        </form>
+
+    </div>
 </div>
 <!--Flickr-->
 

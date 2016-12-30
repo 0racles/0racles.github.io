@@ -571,7 +571,8 @@ body.inner_page .bg_parallax {
     background-position: center !important;
 }
 .header {
-    height: 130px;
+        height: 50px;
+		background-color: #922626;
 }
 .header .search {
     width: 100%;
@@ -693,6 +694,20 @@ body.inner_page .bg_parallax {
 }
 .user_sm {
     width: 25%;
+}
+.contant {
+     display: block;
+}
+.container {
+     padding-right: 0px;
+     padding-left: 0px; 
+     margin-right: 0px; 
+     margin-left: 0px; 
+}
+.contant .row [class*="col-"] {
+    float: none;
+    display: block;
+    vertical-align: top;
 }
 }
 
