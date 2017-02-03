@@ -1,7 +1,9 @@
 var app = (function () {
 var 
 i=0,
+innerpage = document.getElementById("innerpage"),
 map_place = document.getElementById("map_place"),
+chat_messages = document.querySelectorAll('.chat-messages')[0],
 address = document.querySelectorAll(".address")[0],
 basic = document.querySelectorAll(".basic")[0],
 chat_button = document.getElementById("chat_button"),
@@ -10,12 +12,13 @@ user_image = document.querySelectorAll('.user_image'),
 user_name2 = document.getElementById("user_name2"),
 similar = document.querySelectorAll(".similar")[0],
 addy_alert = document.querySelectorAll(".addy_alert"),
+log_btn = document.querySelectorAll(".log_btn")[0],
+side_menu = document.querySelectorAll(".side_menu")[0].getElementsByTagName("A"),
 get_user_position,
 z = 0,
 newLocation,
 
 initiate_sw2 = function () {
-  var source = new Eventsource("demo_sse.php");
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/html/s-w.js', {scope : '/html/'}).then(function (reg) {
     console.log("you have succesfully registered. Scope is " + reg.scope);
@@ -68,6 +71,7 @@ get_user_position = function () {
   
     marker = new google.maps.Marker({
       position : newLocation,
+      //map : chat_messages,
       map : geo_Map,
       draggable : true,
       //label : "D",
@@ -93,7 +97,7 @@ currentTime = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     if (status === google.maps.GeocoderStatus.OK) {
         address.textContent = "Hey, i'm at " + results[0].formatted_address;
         set_address(results[0].address_components[0].short_name + ", " + results[0].address_components[1].short_name + '<br>' + currentTime);
-        
+        reset_mob_view (results[0].formatted_address, results[0].address_components[0].short_name + ", " + results[0].address_components[1].short_name + '<br>' + currentTime);
       }
     })
 },
@@ -161,6 +165,17 @@ load_user_photo2 = function  () {
 
 },
 
+// for mobile view not more than 500px wide
+
+reset_mob_view = function (res, addy) {
+  if (window.innerWidth <= 500) {
+  log_btn.textContent = res;
+  side_menu[0].insertAdjacentHTML('beforeend', addy);
+  side_menu[1].insertAdjacentHTML('beforeend', addy);
+  side_menu[2].insertAdjacentHTML('beforeend', addy);
+  side_menu[3].insertAdjacentHTML('beforeend', addy);
+  }
+},
 
   init = function () {
    google.maps.event.addDomListener(window, "load", initialize_geo(get_user_position));

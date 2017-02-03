@@ -146,7 +146,7 @@ Last change:    24/02/15
 [6. 992 / #992]
 */
 @media (max-width: 992px) {
-    .mobile_place {display: block;
+    .mobile_place {display: none;
     }
     .mobile_none {display: none;}
     .sidebar {display: none !important;}
@@ -477,6 +477,9 @@ margin-top: 28px;
 [16. 500 / #500]
 */
 @media (max-width: 500px) {
+html.ng-scope {height: 100%;}
+body.inner_page {background:none; height:100%; overflow:hidden;}
+body.inner_page .bg_parallax {background:none;}
 .place_li_cont .style_list img {
 display: block;
 float: none;
@@ -522,7 +525,7 @@ margin-left: 0px;
 }
 .icon_descr_block .cols {width: 90%;}
 .header_section {
-    background: url(../img/c_interior.png) no-repeat;
+   background: url(../img/c_interior.png) no-repeat;
     margin: 0px 0px;
     background-size: cover;
     min-height: 255px;
@@ -566,9 +569,6 @@ margin-left: 0px;
 .mobile_place .similar div {
     width: 100%;
     margin: 0px 0px 20px;
-}
-body.inner_page .bg_parallax {
-    background-position: center !important;
 }
 .header {
         height: 50px;
@@ -699,6 +699,7 @@ body.inner_page .bg_parallax {
      display: block;
 }
 .container {
+     height : 100%;
      padding-right: 0px;
      padding-left: 0px; 
      margin-right: 0px; 
@@ -709,6 +710,67 @@ body.inner_page .bg_parallax {
     display: block;
     vertical-align: top;
 }
+.contant .row {
+    margin-top:70px;
+    height: 85%;
+    display: block; 
+    padding: 10px;
+}
+.row {
+    margin-right: 0px; 
+    margin-left: 0px;
+}
+.page_info {
+    padding: 0px 15px 0px; 
+}
+
+div#inb {height:100%;}
+
+div#container {height:100%;}
+
+div.chat-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+div.chat-messages {
+    background: linear-gradient(
+    to bottom,
+    rgb(122,214,184) 0%,
+    rgb(122,214,184) 100%
+   );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    order: 1;
+    flex: 1;
+    overflow-x: hidden;
+    padding-bottom: 72px;
+    overflow: hidden;
+}
+
+.contant .basic {
+    background: #ffffff;
+    min-height: 100%;
+    padding: 0px;
+    position: relative;
+}
+
+.pushy .profile .log_btn {
+    width: 200px;
+    display: block;
+    border: 2px solid #FFFFFF;
+    text-align: center;
+    padding: 8px;
+    border-radius: 3px;
+    margin: 0px auto;
+}
+
 }
 
 

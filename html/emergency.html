@@ -22,7 +22,7 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <!--Main styles-->
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/maino.css">
 <!--Adaptive styles-->
 <link rel="stylesheet" type="text/css" href="css/adaptive.css">
 <!--Swipe menu-->
@@ -45,7 +45,7 @@
 <script src="js/names.js"></script>
  <script src="js/app.js"></script>--> 
 </head>
-<body class="inner_page innerpage">
+<body class="inner_page innerpage" id="innerpage">
 <div class="bg_parallax" id="inb">
 <!--navigation swipe-->
 <div class="menu-btn">&#9776;</div>
@@ -56,14 +56,10 @@
 <a href="#" class="log_btn">Active</a>
 </div>
 <ul class="side_menu">
-<!--<li><a href="index.html"><i class="fa fa-bookmark-o"></i>Promo page</a></li>-->
-<!--<li><a href="01.html" class="animsition-link"><i class="fa fa-map-marker"></i>Map</a></li>-->
-<li><a href="05.html"><i class="fa fa-list"></i>Place list</a></li>
-<!--<li><a href="04.html"><i class="fa fa-th"></i>Pl</a></li>-->
-<li><a href="02.html"><i class="fa fa-building-o"></i>friend Finder</a></li>
-<li><a href="03.html"><i class="fa fa-user"></i>User profile</a></li>
-<li><a href="06.html"><i class="fa fa-book"></i>Investigate</a></li>
-<!--<li><a href="07.html"><i class="fa fa-file-powerpoint-o"></i>Open post</a></li>-->
+<li><a href="05.html"><i class="fa fa-clock-o"></i></a></li> <!--fa-list Place list-->
+<li><a href="02.html"><i class="fa fa-clock-o"></i></a></li> <!--fa-building-o friend Finder-->
+<li><a href="03.html"><i class="fa fa-clock-o"></i></a></li> <!--fa-user User profile-->
+<li><a href="06.html"><i class="fa fa-clock-o"></i></a></li> <!--fa-book Investigate-->
 </ul>
 </nav>
 
@@ -110,7 +106,7 @@
 <div class="container-fluid header inner_head">
 <div class="fixed_w">
 <div class="row">
-<div class="col-md-12"><a href="index.html" class="logo"><i class="fa fa-umbrella"></i></a>
+<div class="col-md-12"><a href="index.html" class="logo"></a>
 <!--<input type="text" class="search" placeholder="search"><a href="#" class="green_btn_header" id="ad">Add place</a>--></div>
 </div>
 </div>
@@ -167,90 +163,79 @@
 </div>
 </div>
 </div>
+
 <!--content-->
 <div class="col-md-9 basic">
 <!--Header section-->
-<div class="header_section">
-</div>
-<!--Phone info--1
-<div class="phone_email">
-<span><i class="fa fa-phone"></i>8 (423) 249-96-69</span>
-<span><i class="fa fa-globe"></i><a href="http://matart.ru">http://matart.ru</a></span>
-</div>
-<!--icon description block--2
-<div class="icon_descr_block">
-<div class="cols">
-</div>
-<div class="bubble"><div>Hello Friend, are you alright?<span></span></div></div>
-</div>
-<!--Features info-->
-
-<!--Share this place btn and total visitors--3
-<div class="share_block">
-<div>
-<a href="#" class="btn btn-success" id="broadcast">Broadcast</a>
-</div>
-<div>
-<div>
-<a href="#" class="btn btn-deluxe" id="chat_button">Chat <span class="label"><i class="fa fa-comments"></i></span></a>
-</div>
-</div>
-</div>
-<!--Check in--
+<div class="header_section"></div>
 
 <!--Mobile visibli-->
 <div class="mobile_place">
-<div class="address">
+<!--<div class="address">
 Mordovceva street, 6 (Up on"Semenovskaya"), 690091, Vladivostok</div>
-<div class="similar">
+<!--<div class="similar">
 <h3>Similar places:</h3>
+</div>-->
 
-<div class="mob_chat-container" ng-controller="BasicController as chat"> <!--class="chat-container"-->
+<div class="mob-chat-container" ng-controller="BasicController as chat"> 
 
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-        <!-- Chat Messages -->
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-       <div class="chatt-messages">
-            <!--<div class="chat-header">
-                <div class="angularjs-chat-logo"></div>
-                WATCHmyBACK Chat
-            </div>-->
+    <div class="mob-chat-container" ng-controller="BasicController as chat">
+        <div class="chat-messages">
+              
             <div ng-repeat="message in chat.messages">
                 <div class="sent-message-{{ message.self }}">
                     <span class="username">{{ message.user.name }}:</span>
                     {{ message.data }}
                 </div>
-                <div class="clear"></div> 
+                <div class="clear"></div>
             </div>
         </div>
+        <form ng-submit="chat.send()" class="chat-input" id="chat-input">
+            <input type="text" ng-model="chat.textbox" id="text-box" autofocus>
+            <input type="submit" class="send-icon" value=" ">
+            <input type="submit" value=" "
+                class="sent-indicator {{ chat.status }}">
+        </form>
+    </div>-->
+
+
+
+
+</div>
+<!--END OF MOBILE VISIBILITY -->
+<div class="chat-container" ng-controller="BasicController as chat">
+
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <!-- Chat Messages -->
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+       <div class="chat-messages">
+            <!--<div class="chat-header">
+                <div class="angularjs-chat-logo"></div>
+                WATCHmyBACK Chat
+            </div>-->
+           <div ng-repeat="message in chat.messages">
+                <div class="sent-message-{{ message.self }}">
+                    <span class="username">{{ message.user.name }}:</span>
+                    {{ message.data }}
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <!-- User Input -->
+        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        <form ng-submit="chat.send()" class="chat-input" id="chat-input">
+            <input type="text" ng-model="chat.textbox" id="text-box" autofocus>
+            <input type="submit" class="send-icon" value=" ">
+            <input type="submit" value=" "
+                class="sent-indicator {{ chat.status }}">
+        </form>
+
+    </div>
 </div>
 
-<!--<div>
-<img src="img/avatar/ava_11.jpg" alt="#">
-<a href="#">Cafe "Oki-Doki"</a>
-<i class="fa fa-thumbs-o-up"></i>34 likes
-</div>
-<div>
-<img src="img/avatar/ava_12.jpg" alt="#">
-<a href="#">Cafe "Oki-Doki"</a>
-<i class="fa fa-thumbs-o-up"></i>123 likes
-</div>
-<div>
-<img src="img/avatar/ava_13.jpg" alt="#">
-<a href="#">Cafe "Oki-Doki"</a>
-<i class="fa fa-thumbs-o-up"></i>3 likes
-</div>
-<div>
-<img src="img/avatar/ava_14.jpg" alt="#">
-<a href="#">Cafe "Oki-Doki"</a>
-<i class="fa fa-thumbs-o-up"></i>456 likes
-</div>
-<div>
-<img src="img/avatar/ava_15.jpg" alt="#">
-<a href="#">Cafe "Oki-Doki"</a>
-<i class="fa fa-thumbs-o-up"></i>698 likes
-</div>-->
-</div>
+
 <div class="chat-container" ng-controller="BasicController as chat">
 
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
@@ -281,47 +266,9 @@ Mordovceva street, 6 (Up on"Semenovskaya"), 690091, Vladivostok</div>
         </form>
 
     </div>
+
+
 </div>
-<!--Flickr-->
-
-<!--review end-->
-<!--add comment--9
-<div class="add_comment">
-<h4>....<i class="fa fa-pencil"></i></h4>
-<textarea></textarea>
-<a href="#" class="btn btn-success">Post</a>
-</div>-->
-
-<div class="chat-container" ng-controller="BasicController as chat">
-
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-        <!-- Chat Messages -->
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-       <div class="chat-messages">
-            <!--<div class="chat-header">
-                <div class="angularjs-chat-logo"></div>
-                WATCHmyBACK Chat
-            </div>-->
-            <div ng-repeat="message in chat.messages">
-                <div class="sent-message-{{ message.self }}">
-                    <span class="username">{{ message.user.name }}:</span>
-                    {{ message.data }}
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-        <!-- User Input -->
-        <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
-        <form ng-submit="chat.send()" class="chat-input" id="chat-input">
-            <input type="text" ng-model="chat.textbox" id="text-box" autofocus>
-            <input type="submit" class="send-icon" value=" ">
-            <input type="submit" value=" "
-                class="sent-indicator {{ chat.status }}">
-        </form>
-
-    </div>
 
 
 </div>
