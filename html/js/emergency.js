@@ -5,7 +5,7 @@ innerpage = document.getElementById("innerpage"),
 map_place = document.getElementById("map_place"),
 chat_cont = document.querySelectorAll('.chat-container')[0],
 chat_messages = chat_cont.getElementsByTagName('DIV')[0],
-text_box = document.getElementById('text-box'),
+text_box = document.getElementById('text-boxo'),
 send_butt = document.querySelectorAll('.sent-indicator')[0],
 address = document.querySelectorAll(".address")[0],
 basic = document.querySelectorAll(".basic")[0],
@@ -190,7 +190,8 @@ alerto = function () {
    initiate_sw2();
    //chat_button.addEventListener("click", replace_comment_sec);
   };
-text_box.addEventListener("input", alerto);
+text_box.addEventListener("input", clear_bubble);
+  
   return {
     init : init
   };
