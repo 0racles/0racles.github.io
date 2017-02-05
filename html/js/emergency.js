@@ -3,7 +3,10 @@ var
 i=0,
 innerpage = document.getElementById("innerpage"),
 map_place = document.getElementById("map_place"),
-chat_messages = document.querySelectorAll('.chat-messages')[0],
+chat_cont = document.querySelectorAll('.chat-container')[0],
+chat_messages = chat_cont.getElementsByTagName('DIV')[0],
+text_box = document.getElementById('text-box'),
+send_butt = document.querySelectorAll('.sent-indicator')[0],
 address = document.querySelectorAll(".address")[0],
 basic = document.querySelectorAll(".basic")[0],
 chat_button = document.getElementById("chat_button"),
@@ -48,7 +51,7 @@ initialize_geo = function (callback) {
     geo_Map = new google.maps.Map(map_place, mapOptions);
     map_place.classList.add(".loading");
     callback();
-    clear_bubble();
+    //clear_bubble();
     user_name.textContent = window.localStorage.getItem("userName");
     user_name2.textContent = window.localStorage.getItem("userName");
     load_user_photo();
@@ -101,9 +104,9 @@ currentTime = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
       }
     })
 },
-clear_bubble = function () {
-  if (document.querySelectorAll(".chat-messages")[0].children.length >= 0) {
-   // $(address).hide();
+clear_bubble = function (event) {
+  if (document.querySelectorAll(".chat-messages")[0].children.length >= 1) {
+   $(address).hide();
   } else {
     $(address).show();
   }
@@ -174,7 +177,12 @@ reset_mob_view = function (res, addy) {
   side_menu[1].insertAdjacentHTML('beforeend', addy);
   side_menu[2].insertAdjacentHTML('beforeend', addy);
   side_menu[3].insertAdjacentHTML('beforeend', addy);
+
   }
+},
+
+alerto = function () {
+  alert('thanks, but i am working now');
 },
 
   init = function () {
@@ -182,7 +190,7 @@ reset_mob_view = function (res, addy) {
    initiate_sw2();
    //chat_button.addEventListener("click", replace_comment_sec);
   };
-
+text_box.addEventListener("input", alerto);
   return {
     init : init
   };
