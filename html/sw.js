@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v7').then(function (cache) {
+        caches.open('v8').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -22,6 +22,7 @@ this.addEventListener("install", function (event) {
           'css/animate.css',
           'css/bootstrap.css',
           'css/main.css',
+          'css/maino.css',
           'css/pushy.css',
           'css/font-awesome.css',
           'rs-plugin/css/settings.css',
@@ -58,7 +59,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v7'];
+  var cacheWhitelist = ['v8'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
