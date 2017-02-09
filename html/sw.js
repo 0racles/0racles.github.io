@@ -1,10 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-<<<<<<< HEAD
-        caches.open('v5').then(function (cache) {
-=======
-        caches.open('v4').then(function (cache) {
->>>>>>> origin/master
+        caches.open('v6').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -60,11 +56,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-<<<<<<< HEAD
-  var cacheWhitelist = ['v5'];
-=======
-  var cacheWhitelist = ['v4'];
->>>>>>> origin/master
+  var cacheWhitelist = ['v6'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
