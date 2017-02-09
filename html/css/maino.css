@@ -1229,6 +1229,7 @@ a.green_btn:hover {
     position: fixed;
     width: 100%;
     z-index: 9;
+    top:0;
     transition: 0.3s;
     background: #e73931;
     height: 50px;

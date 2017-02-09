@@ -53,6 +53,8 @@ img = '<img accept="image/*">',
 body = document.body,
 toggle_on = document.querySelector('.toggle-on'),
 //mic = document.querySelectorAll(".mic")[0],
+sub_button =document.getElementById("sub_button"),
+unsub_button = document.getElementById("unsub_button"),
 open_settings,
 perform_validation,
 sign_in,
@@ -67,6 +69,9 @@ span_3,
 existing_data = {},
 storedData,
 chunks = [],
+isEnabled = false,
+sub_button = false,
+
 // dropdown for microphone settings
 
 // push notification begin here
@@ -92,10 +97,17 @@ initialize_ui = function() {
 		isSubscribed = !(sub === null);
 		if (isSubscribed) {
 			console.log('User is subscribed');
+      sub_button.disabled = false;
+      unsub_button.disabled = true;
+      sub_button.title = "Enable push messages";
 			//swreg.pushManager.unSubscribe();
+
 		} else {
 			// enable subscription button
+      sub_button.disabled = true;
+      unsub_button.disabled = false;
 			console.log('user is not subscribed');
+
 			subscribeUser();
 		}
 	})

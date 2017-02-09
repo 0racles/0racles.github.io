@@ -51,7 +51,7 @@ initialize_geo = function (callback) {
     geo_Map = new google.maps.Map(map_place, mapOptions);
     map_place.classList.add(".loading");
     callback();
-    //clear_bubble();
+    clear_bubble();
     user_name.textContent = window.localStorage.getItem("userName");
     user_name2.textContent = window.localStorage.getItem("userName");
     load_user_photo();
@@ -91,6 +91,7 @@ get_user_position = function () {
     positionError = function () {
       console.log("sorry your postion cannot be found at this time");
     },
+
 
 disp_addy = function (location) {
 var d = new Date (),

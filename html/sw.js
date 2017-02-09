@@ -1,6 +1,10 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
+<<<<<<< HEAD
         caches.open('v8').then(function (cache) {
+=======
+        caches.open('v5').then(function (cache) {
+>>>>>>> wmbbranch
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -59,7 +63,11 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
+<<<<<<< HEAD
   var cacheWhitelist = ['v8'];
+=======
+  var cacheWhitelist = ['v5'];
+>>>>>>> wmbbranch
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
