@@ -1460,6 +1460,46 @@ a.green_btn:hover {
 	text-outline: 2px 2px #ff0000;
 }
 
+.not_button {
+    display: block !important;
+    position: relative;
+    top: 10px;
+    left: 100px;
+    /* font-size: 35px !important; */
+    color: green;
+    border-radius: 100%;
+    border : 1px solid red;
+    height: 50px;
+    width: 50px;
+}
+
+.not_button:hover {
+    background: rgba(231, 57, 49, 1);
+    height:60px;
+    width:60px;
+    cursor:pointer;
+}
+
+.not_inner_button {
+    border-radius: 100%;
+    border: 1px solid #ccc;
+    /*background: #785;*/
+}
+
+.pos_center_4px {
+    display: block;
+    margin: 4px auto;
+}
+
+#recommended {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    top: -60px;
+    left: 80px;
+    font-size: 10px;
+    color: blue;
+}
 
 /*------------------------------------------------------------------
 [4. Inner (place) Page styles / #Inner (place) Page styles]
