@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v6').then(function (cache) {
+        caches.open('v7').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -49,14 +49,16 @@ this.addEventListener("install", function (event) {
           'img/wmb_144x144.png',
           'img/wmb_152x152.png',
           'img/wmb_192x192.png',
-          'img/wmb_256x256.png'
+          'img/wmb_256x256.png',
+          'img/icon/bell.png',
+          'img/icon/bell_off.png'
           ]);
         })
         );
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v6'];
+  var cacheWhitelist = ['v7'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
