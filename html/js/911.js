@@ -48,12 +48,13 @@ pic_file = document.getElementById("pic_file"),
 target =document.querySelectorAll(".target")[0],
 replay = forms[2].getElementsByTagName("a")[0].firstElementChild,
 mic = forms[2].getElementsByTagName("a")[0].lastElementChild,
+bad_button_form = document.getElementById("bad_button_form"),
 xhr = new XMLHttpRequest(),
 img = '<img accept="image/*">',
 body = document.body,
 toggle_on = document.querySelector('.toggle-on'),
 //mic = document.querySelectorAll(".mic")[0],
-sub_button =document.getElementById("sub_button"),
+sub_button = document.getElementById("sub_button"),
 unsub_button = document.getElementById("unsub_button"),
 open_settings,
 perform_validation,
@@ -70,7 +71,6 @@ existing_data = {},
 storedData,
 chunks = [],
 isEnabled = false,
-sub_button = false,
 
 // dropdown for microphone settings
 
@@ -96,19 +96,33 @@ initialize_ui = function() {
 	swreg.pushManager.getSubscription().then(function(sub) {
 		isSubscribed = !(sub === null);
 		if (isSubscribed) {
-			console.log('User is subscribed');
-      sub_button.disabled = false;
-      unsub_button.disabled = true;
-      sub_button.title = "Enable push messages";
+		var sub_button = bad_button_form.getElementsByTagName("BUTTON")[0],
+		    unsub_button = bad_button_form.getElementsByTagName("BUTTON")[1],
+			recommended = bad_button_form.getElementsByTagName("A")[0],
+			not_recommeded = bad_button_form.getElementsByTagName("A")[1];
+			sub_button.disabled = true;
+			unsub_button.disabled = false;
+            unsub_button.title = "disable push messages";
+			not_recommeded.setAttribute("id", "recommended");
+			not_recommeded.textContent = "Not Recommeded";
+			
+			unsub_button.addEventListener("click", unsubscribe);
 			//swreg.pushManager.unSubscribe();
-
+			
 		} else {
 			// enable subscription button
-      sub_button.disabled = true;
-      unsub_button.disabled = false;
-			console.log('user is not subscribed');
+			var sub_button = bad_button_form.getElementsByTagName("BUTTON")[0],
+		    unsub_button = bad_button_form.getElementsByTagName("BUTTON")[1],
+			recommended = bad_button_form.getElementsByTagName("A")[0],
+			not_recommeded = bad_button_form.getElementsByTagName("A")[1];
+			sub_button.disabled = false;
+			unsub_button.disabled = true;
+            sub_button.title = "Enable push messages"
+			recommended.setAttribute("id", "recommended");
+			recommended.textContent = "Recommeded";
+	        console.log('user is not subscribed');
 
-			subscribeUser();
+			sub_button.addEventListener("click", subscribeUser);
 		}
 	})
 },
@@ -136,6 +150,13 @@ subscribeUser = function() {
   });
 },
 
+unsubscribe = function () {
+	swreg.pushManager.getSubscription().then(function(pushSubscription) {
+		pushSubscription.unsubscribe();
+	}).catch(function (e) {
+		window.Demo.debug.log("unsubscription error: ", e);
+	})
+},
 
 open_settings = function() {
    autorized.classList.remove("none");
@@ -425,6 +446,7 @@ recognition.onerror = function () {
   mic.style.transform = 'none';
   forms[2].textContent = password;
 }
+
 
 },
 

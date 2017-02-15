@@ -1473,17 +1473,17 @@ a.green_btn:hover {
     width: 50px;
 }
 
-.not_button:hover {
+/*.not_button:hover {
     background: rgba(231, 57, 49, 1);
     height:60px;
     width:60px;
     cursor:pointer;
-}
+}*/
 
 .not_inner_button {
     border-radius: 100%;
     border: 1px solid #ccc;
-    /*background: #785;*/
+    background: #785;
 }
 
 .pos_center_4px {
@@ -1499,6 +1499,10 @@ a.green_btn:hover {
     left: 80px;
     font-size: 10px;
     color: blue;
+}
+
+#add_cursor {
+	cursor : pointer;
 }
 
 /*------------------------------------------------------------------
