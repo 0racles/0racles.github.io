@@ -28,6 +28,7 @@ autorized2 = document.getElementById("autorized2"),
 autorized3 = document.getElementById("autorized3"),
 autorized4 = document.getElementById("autorized4"),
 autorized5 = document.getElementById("autorized5"),
+autorized6 = document.getElementById("autorized6"),
 validate1 = document.getElementById("validate1"),
 validate2 =document.getElementById("validate2"),
 play =document.querySelectorAll(".play"),
@@ -49,6 +50,7 @@ target =document.querySelectorAll(".target")[0],
 replay = forms[2].getElementsByTagName("a")[0].firstElementChild,
 mic = forms[2].getElementsByTagName("a")[0].lastElementChild,
 bad_button_form = document.getElementById("bad_button_form"),
+find_me = document.querySelector('.find_me'),
 xhr = new XMLHttpRequest(),
 img = '<img accept="image/*">',
 body = document.body,
@@ -137,7 +139,8 @@ subscribeUser = function() {
   })
   .then(function(subscription) {
     console.log('User is subscribed:', subscription);
-
+    thank_you();
+    find_me.addEventListener('click', function () {document.location.assign('emergency.html')});
     //updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;
@@ -228,6 +231,10 @@ sign_in = function (event) {
    },
 
    // send invites to friends
+
+   thank_you = function () {
+    autorized6.classList.remove("none");
+   },
 
    send_invites = function () {
     var parg = head.parentNode;

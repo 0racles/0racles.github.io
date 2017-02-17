@@ -1484,6 +1484,8 @@ a.green_btn:hover {
     border-radius: 100%;
     border: 1px solid #ccc;
     background: #785;
+    height: 100px;
+    width : 100px;
 }
 
 .pos_center_4px {
@@ -1503,6 +1505,35 @@ a.green_btn:hover {
 
 #add_cursor {
 	cursor : pointer;
+}
+
+.find_me {
+    background: #A1201A;
+    padding: 6px 50px;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 4px;
+    display: block;
+    width: 150px;
+    text-align: center;
+    margin: 150px auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.find_me:hover {
+    background: #000;
+    padding: 6px 50px;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 4px;
+    display: block;
+    width: 150px;
+    text-align: center;
+    margin: 150px auto;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor : pointer;
 }
 
 /*------------------------------------------------------------------
