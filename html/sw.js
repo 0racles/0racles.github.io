@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v13').then(function (cache) {
+        caches.open('v14').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -59,7 +59,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v13'];
+  var cacheWhitelist = ['v14'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -86,7 +86,7 @@ self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
-  const title = 'Mt App';
+  const title = 'Emergency Alert';
   const options = {
     body: 'Hi Yomi, do you see me.',
    icon: 'img/alone gal.jpg',
