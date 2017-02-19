@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v11').then(function (cache) {
+        caches.open('v12').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -59,7 +59,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v11'];
+  var cacheWhitelist = ['v12'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -86,11 +86,11 @@ self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
-  const title = 'Push Codelab';
+  const title = 'Mt App';
   const options = {
-    body: 'Yay it works.'
-   // icon: 'images/icon.png',
-    //badge: 'images/badge.png'
+    body: 'Hi Yomi, do you see me.'
+   icon: 'img/alone gal.jpg',
+    badge: 'img/icon/bell.png'
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
