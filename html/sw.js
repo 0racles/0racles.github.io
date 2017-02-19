@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v12').then(function (cache) {
+        caches.open('v13').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -59,7 +59,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v12'];
+  var cacheWhitelist = ['v13'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
@@ -88,7 +88,7 @@ self.addEventListener('push', function(event) {
 
   const title = 'Mt App';
   const options = {
-    body: 'Hi Yomi, do you see me.'
+    body: 'Hi Yomi, do you see me.',
    icon: 'img/alone gal.jpg',
     badge: 'img/icon/bell.png'
   };
