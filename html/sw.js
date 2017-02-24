@@ -86,11 +86,11 @@ self.addEventListener('push', function(event) {
   console.log('[Service Worker] Push Received.');
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
-  const title = 'Push Codelab';
+  const title = 'Emergency Alert';
   const options = {
-    body: 'Yay it works.'
-   // icon: 'images/icon.png',
-    //badge: 'images/badge.png'
+    body: 'Hi Yomi, do you see me.',
+   icon: 'img/alone gal.jpg',
+    badge: 'img/icon/bell.png'
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
