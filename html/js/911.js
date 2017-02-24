@@ -136,8 +136,8 @@ subscribeUser = function() {
     applicationServerKey: applicationServerKey
   })
   .then(function(subscription) {
-    console.log('User is subscribed:', subscription);
-
+    console.log('User is subscribed: this is the new addition', subscription);
+    event.preventDefault();
     //updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;

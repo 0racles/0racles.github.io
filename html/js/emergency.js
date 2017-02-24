@@ -150,7 +150,7 @@ load_user_photo = function  () {
   };
   if (existingdata.userImage !== null) {
     myImage.src = existingdata.userImage;
-    user_image[1].parentNode.replaceChild(myImage, user_image[1]);
+    user_image[0].parentNode.replaceChild(myImage, userImage);
   }
 
 },
