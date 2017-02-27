@@ -138,14 +138,11 @@ subscribeUser = function() {
     applicationServerKey: applicationServerKey
   })
   .then(function(subscription) {
-<<<<<<< HEAD
     console.log('User is subscribed: this is the new addition', subscription);
     event.preventDefault();
-=======
     console.log('User is subscribed:', subscription);
     thank_you();
     find_me.addEventListener('click', function () {document.location.assign('emergency.html')});
->>>>>>> origin/master
     //updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;
