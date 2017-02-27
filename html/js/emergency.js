@@ -20,6 +20,7 @@ side_menu = document.querySelectorAll(".side_menu")[0].getElementsByTagName("A")
 get_user_position,
 z = 0,
 newLocation,
+img_obj = {},
 
 initiate_sw2 = function () {
 if ('serviceWorker' in navigator) {
@@ -60,6 +61,9 @@ initialize_geo = function (callback) {
     
 
 get_user_position = function () {
+    img_obj.prop1 = window.localStorage.getItem('user_image').style.width = '40px';
+    img_obj.prop2 = window.localStorage.getItem('user_image').style.height = '40px';
+    img_array = [img_obj.prop1, img_obj.prop2];
     navigator.geolocation.watchPosition(positionSuccess, positionError, positionOptions);
 }
     var positionOptions = {
@@ -78,7 +82,7 @@ get_user_position = function () {
       map : geo_Map,
       draggable : true,
       //label : "D",
-      icon : window.localStorage.getItem('user_image'),
+      icon : img_array,
       title : "In danger",
       animation : google.maps.Animation.BOUNCE  
      });
