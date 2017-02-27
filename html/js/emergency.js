@@ -54,7 +54,7 @@ initialize_geo = function (callback) {
     clear_bubble();
     user_name.textContent = window.localStorage.getItem("userName");
     user_name2.textContent = window.localStorage.getItem("userName");
-    load_user_photo();
+    //load_user_photo();
     load_user_photo2();
  },
     
@@ -163,7 +163,7 @@ load_user_photo2 = function  () {
   };
   if (existingdata.userImage !== null) {
     myImage.src = existingdata.userImage;
-    user_image[0].parentNode.replaceChild(myImage, user_image[0]);
+   user_image[0].parentNode.replaceChild(myImage, user_image[0]);
     //user_image[1].parentNode.replaceChild(myImage, user_image[1]);
   }
 

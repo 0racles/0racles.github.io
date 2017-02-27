@@ -31,7 +31,7 @@ autorized5 = document.getElementById("autorized5"),
 autorized6 = document.getElementById("autorized6"),
 validate1 = document.getElementById("validate1"),
 validate2 =document.getElementById("validate2"),
-play =document.querySelectorAll(".play"),
+play = document.querySelectorAll(".play"),
 forms = document.getElementsByTagName("FORM"),
 audio = document.createElement("audio"),
 saveButton = document.createElement("button"),
@@ -179,7 +179,7 @@ sign_in = function (event) {
     event.stopPropagation();
    },
 
-   invite_contacts = function (event) {
+   user_sign_up = function (event) {
     var userName = validate1.getAttribute("name"),
         userNamevalue = validate1.value,
         userEmail = validate2.getAttribute("name"),
@@ -538,6 +538,7 @@ test_see = function () {
     back[2].addEventListener("click", go_back3);
     back[3].addEventListener("click", go_back4);
     play[0].addEventListener("click", sign_in);
+    play[0].addEventListener("click", user_sign_up);
     play[1].addEventListener("click", voice_page);
     play[2].addEventListener("click", invite_friends)
     play[3].addEventListener("click", send_invites);
