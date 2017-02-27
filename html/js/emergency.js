@@ -78,8 +78,8 @@ get_user_position = function () {
       map : geo_Map,
       draggable : true,
       //label : "D",
-      //icon : 'img/start/map_icons/medium_house.png',
-      title : "Hey there!",
+      icon : window.localStorage.getItem('user_image'),
+      title : "In danger",
       animation : google.maps.Animation.BOUNCE  
      });
     geo_Map.setZoom(18);
@@ -164,7 +164,6 @@ load_user_photo2 = function  () {
   if (existingdata.userImage !== null) {
     myImage.src = existingdata.userImage;
    user_image[0].parentNode.replaceChild(myImage, user_image[0]);
-    //user_image[1].parentNode.replaceChild(myImage, user_image[1]);
   }
 
 },
