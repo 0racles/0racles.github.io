@@ -21,6 +21,7 @@ get_user_position,
 z = 0,
 newLocation,
 img_obj = {},
+myImage = new Image(),
 
 initiate_sw2 = function () {
 if ('serviceWorker' in navigator) {
@@ -55,8 +56,7 @@ initialize_geo = function (callback) {
     clear_bubble();
     user_name.textContent = window.localStorage.getItem("userName");
     user_name2.textContent = window.localStorage.getItem("userName");
-    //load_user_photo();
-    //load_user_photo2();
+    load_user_photo2();
  },
     
 
@@ -79,7 +79,7 @@ get_user_position = function () {
       map : geo_Map,
       draggable : true,
       //label : "D",
-      icon : load_user_photo2(),
+      icon : "<img src=' + window.localStorage.getItem(user_image) + '>",
       title : "In danger",
       animation : google.maps.Animation.BOUNCE  
      });
@@ -142,21 +142,22 @@ set_address = function (addy) {
 
 load_user_photo2 = function  () {
   var storeData = window.localStorage,
-  myImage = new Image(),
   existingdata = {
     "userImage" : storeData.getItem('user_image')
   };
   if (existingdata.userImage !== null) {
     myImage.src = existingdata.userImage;
    user_image[0].parentNode.replaceChild(myImage, user_image[0]);
-  }
-     set_user_photo = function () {
+  }    
+},
+
+set_user_photo = function () {
         img_obj.prop1 = myImage.style.width = '40px';
         img_obj.prop2 = myImage.style.height = '40px';
         img_array = [img_obj.prop1, img_obj.prop2];
         return img_array;
-   }
-},
+   },
+   
 
 // for mobile view not more than 500px wide
 
