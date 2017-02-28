@@ -56,14 +56,11 @@ initialize_geo = function (callback) {
     user_name.textContent = window.localStorage.getItem("userName");
     user_name2.textContent = window.localStorage.getItem("userName");
     //load_user_photo();
-    load_user_photo2();
+    //load_user_photo2();
  },
     
 
 get_user_position = function () {
-    img_obj.prop1 = window.localStorage.getItem('user_image').style.width = '40px';
-    img_obj.prop2 = window.localStorage.getItem('user_image').style.height = '40px';
-    img_array = [img_obj.prop1, img_obj.prop2];
     navigator.geolocation.watchPosition(positionSuccess, positionError, positionOptions);
 }
     var positionOptions = {
@@ -82,7 +79,7 @@ get_user_position = function () {
       map : geo_Map,
       draggable : true,
       //label : "D",
-      icon : img_array,
+      icon : load_user_photo2(),
       title : "In danger",
       animation : google.maps.Animation.BOUNCE  
      });
@@ -143,22 +140,6 @@ set_address = function (addy) {
   }
 },
 
-
-load_user_photo = function  () {
-  var storeData = window.localStorage,
-  myImage = new Image(),
-  existingdata = {
-    "name" : storeData.getItem("userName"),
-    "email" : storeData.getItem("userEmail"),
-    "userImage" : storeData.getItem('user_image')
-  };
-  if (existingdata.userImage !== null) {
-    myImage.src = existingdata.userImage;
-    user_image[0].parentNode.replaceChild(myImage, userImage);
-  }
-
-},
-
 load_user_photo2 = function  () {
   var storeData = window.localStorage,
   myImage = new Image(),
@@ -169,7 +150,12 @@ load_user_photo2 = function  () {
     myImage.src = existingdata.userImage;
    user_image[0].parentNode.replaceChild(myImage, user_image[0]);
   }
-
+     set_user_photo = function () {
+        img_obj.prop1 = myImage.style.width = '40px';
+        img_obj.prop2 = myImage.style.height = '40px';
+        img_array = [img_obj.prop1, img_obj.prop2];
+        return img_array;
+   }
 },
 
 // for mobile view not more than 500px wide
