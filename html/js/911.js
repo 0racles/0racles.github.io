@@ -23,6 +23,7 @@ function urlB64ToUint8Array(base64String) {
 	
 var 
 i=0,
+place_form = document.querySelectorAll(".place_form"),
 autorized = document.getElementById("autorized"),
 autorized2 = document.getElementById("autorized2"),
 autorized3 = document.getElementById("autorized3"),
@@ -529,7 +530,80 @@ test_see = function () {
 
 },
 
-  init = function () {
+swipeleft_handler= function () {
+	$(function () {
+		$(place_form[0]).on("swipeleft", sign_up);
+		$(place_form[1]).on("swipeleft", upload_photo);
+		$(place_form[2]).on("swipeleft", inv_friends);
+		$(place_form[3]).on("swipeleft", send_iv);
+		
+		function sign_up (event) {
+		var userName = validate1.getAttribute("name"),
+        userNamevalue = validate1.value,
+        userEmail = validate2.getAttribute("name"),
+        userEmailvalue = validate2.value;
+    if ((validate1.value && validate2.value) === "") { 
+           validate1.placeholder = "enter full names";
+           validate2.placeholder = "enter unique password";
+           validate1.style.border = "1px solid red";
+           validate2.style.border = "1px solid red";
+       } else {
+      set_local_storage(userName, userNamevalue);
+      set_local_storage(userEmail, userEmailvalue);
+	   autorized.insertAdjacentHTML("beforebegin", "<ul><li data-transition='slideout' data-slotamount='2' data-masterspeed='100'><div class='tp-caption lft fadeout rs-parallaxlevel-1' data-x='950' data-y='510' data-speed='100' data-start='0' data-easing='Power4.easeOut'></div></li></ul>");
+    autorized2.classList.remove("none");
+    
+      }
+		}
+		
+		function upload_photo (event) {
+			autorized3.classList.remove("none");
+		}
+		
+		function inv_friends (event) {
+			 autorized4.classList.remove("none");
+		}
+		
+		function send_iv (event) {
+			if (!autorized3.classList.contains("none")) {
+      avataro.parentNode.removeChild(avataro);
+      upload_conatact.parentNode.removeChild(upload_conatact);
+      send_invite.parentNode.removeChild(send_invite);
+
+  span = "<span style='font-size:40px;font-weight:500;position:absolute;left:10%;'></span><p class='container avatari' id='take_text' style='text-align:center;'>Hey! would you like to try out this cool App with me. We can look out for each other and keep safe <a href='#'>Check it out</a></p>",
+  span_2 = "<a href='report_page.html' class='btn btn-success' id='first_btn'></a>";
+  span_3 = "";
+  form.insertAdjacentHTML("beforeend", span);
+  form.insertAdjacentHTML("beforeend", span_2); 
+  parg.replaceChild('<h3>Compose Message<span></span></h3>', head);
+  }
+		}
+	})
+},
+
+swiperight_handler = function () {
+	$(function () {
+			$(place_form[0]).on("swiperight", slide_back);
+			$(place_form[1]).on("swiperight", slide_back1);
+			$(place_form[2]).on("swiperight", slide_back2);
+			$(place_form[2]).on("swiperight", slide_back3);
+			
+			function slide_back (event) {
+				   autorized.classList.add("none");
+			}
+			function slide_back1 (event) {
+				autorized2.classList.add("none");
+			}
+			function slide_back2 (event) {
+				autorized3.classList.add("none");
+			}
+			function slide_back3 (event) {
+				autorized4.classList.add("none");
+			}
+		});
+	},
+
+  init = function () {		
     for (i; i < go_btn.length; i++) {
     go_btn[i].addEventListener("click", open_settings);
   }
@@ -552,6 +626,8 @@ test_see = function () {
     send_invite.addEventListener('click', user_notify);
     //toggle_on.addEventListener('click', test_see);
     asr();
+	swipeleft_handler();
+	swiperight_handler();
   };
   
   function urlB64ToUint8Array(base64String) {
