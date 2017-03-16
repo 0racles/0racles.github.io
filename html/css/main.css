@@ -183,6 +183,10 @@ body.inner_page .bg_parallax {
     padding-bottom: 0px;
 }
 
+.ui-icon-loading {
+    background : url("http://staff.city.ac.uk/~sbbh718/js-course-2/assets/extra-images/ajax-loader.gif") no-repeat scroll center center rgba(0, 0, 0, 0);
+}
+
 .avataro i {
     max-width: 100px;
     width:80px;
@@ -269,11 +273,17 @@ cursor: pointer;
 
 .white {
     font-size : 70px;
-    position : relative;
     text-align: center;
     padding-left: 12px;
     padding-bottom: 2px;
-    color : #ffffff;
+}
+
+.avatari .span i {
+	color: blue;
+    font-size: 15px;
+    top: -65px;
+    position: relative;
+    right: 5px;
 }
 
 /* this part has been changed*/
@@ -1327,6 +1337,39 @@ a.green_btn:hover {
     -webkit-transition : 2s linear;
 }
 
+#face_image {
+	display: block;
+    width: 80%;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 10px;
+    margin: auto;
+    top: -71px;
+	border: none !important;
+}
+
+#troll_dance {
+	display: block;
+    width: 80%;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 10px;
+    margin: auto;
+    top: -91px;
+	border: none !important;
+}
+
+#mic_check {
+	display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-top: 10px;
+    margin: auto;
+    top: -91px;
+    border: 5px solid #2f2;
+}
+
 .place_form {
     width: 300px;
     background: #ffffff;
@@ -1348,7 +1391,6 @@ a.green_btn:hover {
     width: 80%;
     height: 200px;
     border-radius: 3px;
-    border: 1px solid #DDDDDD;
     /*margin-top: 10px;*/
     margin : auto;
 }
@@ -1497,6 +1539,15 @@ a.green_btn_header.inline  {
     margin: 4px auto;
 }
 
+#autorized5 h3 {
+	text-align : center;
+}
+
+#autorized5 svg{
+	position : relative;
+	top : -50px;
+}
+
 #recommended {
     text-decoration: none;
     display: inline-block;
@@ -1540,6 +1591,26 @@ a.green_btn_header.inline  {
     cursor : pointer;
 }
 
+.profile_me {
+    padding: 6px 10px;
+    font-size: 11px;
+    display: block;
+    width: 250px;
+    text-align: center;
+    margin: 35px auto;
+    text-decoration: none;
+}
+
+.profile_me label{
+	display : inline;
+    font-size: 11px;
+    padding: 0px 30px;
+	text-transform : initial;
+	padding : 0px;
+}
+
+bootstrap.css:2384
+la
 /*------------------------------------------------------------------
 [4. Inner (place) Page styles / #Inner (place) Page styles]
 */

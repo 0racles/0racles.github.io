@@ -50,6 +50,7 @@ pic_file = document.getElementById("pic_file"),
 target =document.querySelectorAll(".target")[0],
 replay = forms[2].getElementsByTagName("a")[0].firstElementChild,
 mic = forms[2].getElementsByTagName("a")[0].lastElementChild,
+mic_check_o = forms[2].getElementsByTagName("img")[0],
 bad_button_form = document.getElementById("bad_button_form"),
 find_me = document.querySelector('.find_me'),
 xhr = new XMLHttpRequest(),
@@ -75,6 +76,7 @@ storedData,
 chunks = [],
 isEnabled = false,
 
+
 // dropdown for microphone settings
 
 // push notification begin here
@@ -87,6 +89,7 @@ initiate_sw =function () {
 	 
 	swreg = reg;
 	initialize_ui();
+	remove_wrapper(".ui-page");
   }).catch(function(error) {  
     console.log('Registration failed with ' + error);
    }); 
@@ -223,26 +226,37 @@ sign_in = function (event) {
     event.preventDefault();
     event.stopPropagation();
    },
+   
+   go_back5 = function () {
+   autorized5.classList.add("none");
+    event.preventDefault();
+    event.stopPropagation();
+   },
+   
 
    // voice password page
   voice_page = function () {
    autorized3.classList.remove("none");
  },
 
-   invite_friends = function () {
+   profile_complete = function () {
     autorized4.classList.remove("none");
+   },
+   
+   invite_friends = function () {
+    autorized5.classList.remove("none");
    },
 
    // send invites to friends
 
-   thank_you = function () {
+   push_notification = function () {
     autorized6.classList.remove("none");
    },
 
    send_invites = function () {
-    var parg = head.parentNode;
+   /* var parg = head.parentNode;
 
-  if (!autorized3.classList.contains("none")) {
+  if (!autorized4.classList.contains("none")) {
       avataro.parentNode.removeChild(avataro);
       upload_conatact.parentNode.removeChild(upload_conatact);
       send_invite.parentNode.removeChild(send_invite);
@@ -406,13 +420,15 @@ asr = function () {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  mic.onclick = function (e) {
+  mic_check_o.onclick = function (e) {
     recognition.start();
     console.log('its time to say your secret magic word');
-    setInterval(function () { mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
-    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200);
+    /*setInterval(function () { mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
+    setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200);*/
+	
+	setInterval(function () { mic_check_o.style.border = mic_check_o.style.borderColor == '5px solid #2f2' ? '10px solid #000' : '5px solid #2f2'}, 200);
+    setInterval(function () {mic_check_o.style.transform = mic_check_o.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200)
   }
-
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
     forms[2].firstElementChild.textContent = password;
@@ -435,8 +451,8 @@ recognition.onspeechend = function () {
   recognition.stop();
   saveButton.textContent = "Save";
   saveButton.className = "save";
-  mic.style.color = '#e73931';
-  mic.style.transform = 'none';
+  mic_check_o.style.border = '5px solid #2f2';
+  mic_check_o.style.transform = 'none';
 
   var last = forms[2].lastElementChild,
   newnode = forms[2].insertBefore(audio, last);
@@ -445,15 +461,15 @@ recognition.onspeechend = function () {
 
 recognition.onnomatch = function () {
   console.log('No match was found at the moment');
-   mic.style.color = '#e73931';
-  mic.style.transform = 'none';
+   mic_check_o.style.border = '5px solid #2f2';
+  mic_check_o.style.transform = 'none';
   forms[2].textContent = password;
 }
 
 recognition.onerror = function () {
   console.log('An error was found');
-   mic.style.color = '#e73931';
-  mic.style.transform = 'none';
+   mic_check_o.style.border = '5px solid #2f2';
+  mic_check_o.style.transform = 'none';
   forms[2].textContent = password;
 }
 
@@ -503,7 +519,7 @@ success_msg = function () {
   },
 
   user_notify = function () {
-    autorized5.classList.remove('none');
+    autorized6.classList.remove('none');
   },
 
   message_sent = function (y) {
@@ -531,6 +547,7 @@ test_see = function () {
 },
 
 swipeleft_handler= function () {
+	if (window.innerWidth < 760) {
 	$(function () {
 		$(place_form[0]).on("swipeleft", sign_up);
 		$(place_form[1]).on("swipeleft", upload_photo);
@@ -579,9 +596,11 @@ swipeleft_handler= function () {
   }
 		}
 	})
+	}
 },
 
 swiperight_handler = function () {
+	if (window.innerWidth < 760 ) {
 	$(function () {
 			$(place_form[0]).on("swiperight", slide_back);
 			$(place_form[1]).on("swiperight", slide_back1);
@@ -601,6 +620,14 @@ swiperight_handler = function () {
 				autorized4.classList.add("none");
 			}
 		});
+	  }
+	},
+	
+remove_wrapper = function (cssSelector) {
+	var add_place = $(".add_place");
+		if (add_place.parent().is("div")) {
+			add_place.unwrap();
+		}
 	},
 
   init = function () {		
@@ -611,19 +638,22 @@ swiperight_handler = function () {
     back[1].addEventListener("click", go_back2);
     back[2].addEventListener("click", go_back3);
     back[3].addEventListener("click", go_back4);
+	back[4].addEventListener("click", go_back5);
     play[0].addEventListener("click", sign_in);
-    play[0].addEventListener("click", user_sign_up);
+   // play[0].addEventListener("click", user_sign_up);
     play[1].addEventListener("click", voice_page);
-    play[2].addEventListener("click", invite_friends)
-    play[3].addEventListener("click", send_invites);
+    play[2].addEventListener("click", profile_complete)
+    play[3].addEventListener("click", invite_friends);
+	play[4].addEventListener('click', user_notify);
+	
     pic_file.addEventListener("change", handleFiles, false);
     get_local_Storage();
     //mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
     initiate_sw();
-    invite_contact.addEventListener("click", invite_contact_func);
-    send_invite.addEventListener('click', user_notify);
+    //invite_contact.addEventListener("click", invite_contact_func);
+    
     //toggle_on.addEventListener('click', test_see);
     asr();
 	swipeleft_handler();
