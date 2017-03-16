@@ -1571,7 +1571,7 @@ a.green_btn_header.inline  {
     display: block;
     width: 150px;
     text-align: center;
-    margin: 150px auto;
+    margin: 100px auto;
     text-decoration: none;
     cursor: pointer;
 }
@@ -1585,7 +1585,7 @@ a.green_btn_header.inline  {
     display: block;
     width: 150px;
     text-align: center;
-    margin: 150px auto;
+    margin: 100px auto;
     text-decoration: none;
     transition: 0.3s;
     cursor : pointer;
@@ -1607,6 +1607,10 @@ a.green_btn_header.inline  {
     padding: 0px 30px;
 	text-transform : initial;
 	padding : 0px;
+}
+
+.h1_bg {
+	background: rgba(77, 77, 79, 0.72);
 }
 
 bootstrap.css:2384

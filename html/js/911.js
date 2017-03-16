@@ -30,6 +30,7 @@ autorized3 = document.getElementById("autorized3"),
 autorized4 = document.getElementById("autorized4"),
 autorized5 = document.getElementById("autorized5"),
 autorized6 = document.getElementById("autorized6"),
+autorized7 = document.getElementById("autorized7"),
 validate1 = document.getElementById("validate1"),
 validate2 =document.getElementById("validate2"),
 play = document.querySelectorAll(".play"),
@@ -146,7 +147,7 @@ subscribeUser = function() {
     event.preventDefault();
     console.log('User is subscribed:', subscription);
     thank_you();
-    find_me.addEventListener('click', function () {document.location.assign('emergency.html')});
+   
     //updateSubscriptionOnServer(subscription);
 
     isSubscribed = true;
@@ -176,14 +177,14 @@ open_settings = function() {
 
 //if user settings passed, go to add contacts using slider revolution 
 sign_in = function (event) {
-    
+    user_sign_up();
     autorized.insertAdjacentHTML("beforebegin", "<ul><li data-transition='slideout' data-slotamount='2' data-masterspeed='100'><div class='tp-caption lft fadeout rs-parallaxlevel-1' data-x='950' data-y='510' data-speed='100' data-start='0' data-easing='Power4.easeOut'></div></li></ul>");
     autorized2.classList.remove("none");
     event.preventDefault();
     event.stopPropagation();
    },
 
-   user_sign_up = function (event) {
+   user_sign_up = function () {
     var userName = validate1.getAttribute("name"),
         userNamevalue = validate1.value,
         userEmail = validate2.getAttribute("name"),
@@ -197,8 +198,6 @@ sign_in = function (event) {
       set_local_storage(userName, userNamevalue);
       set_local_storage(userEmail, userEmailvalue);
       }
-      event.preventDefault();
-      event.stopPropagation();
    },
 
 // this is to close and open move the log in slides
@@ -546,6 +545,13 @@ test_see = function () {
 
 },
 
+ thank_you = function (event) {
+    autorized7.classList.remove("none");
+	 event.preventDefault();
+    event.stopPropagation();
+   },
+
+
 swipeleft_handler= function () {
 	if (window.innerWidth < 760) {
 	$(function () {
@@ -645,9 +651,10 @@ remove_wrapper = function (cssSelector) {
     play[2].addEventListener("click", profile_complete)
     play[3].addEventListener("click", invite_friends);
 	play[4].addEventListener('click', user_notify);
-	
+	sub_button.addEventListener("click", thank_you);
     pic_file.addEventListener("change", handleFiles, false);
     get_local_Storage();
+	find_me.addEventListener('click', function () {document.location.assign('emergency.html')});
     //mic.addEventListener("click", mic_check);
     test_see();
     xhr.addEventListener("readystatechange", progress_response, false);
