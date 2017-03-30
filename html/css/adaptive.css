@@ -261,6 +261,7 @@ margin-top: 28px;
 [9. 768 / #768]
 */
 @media (max-width: 768px) {
+	body { background : none !important; }
     .search_promo {}
     .search_promo .input-group {
         display: block;
@@ -274,6 +275,12 @@ margin-top: 28px;
     }
     .start_descrition {margin-top: -250px;}
     /*.tp-banner-container {display: none !important;}*/ /*removed this rule for content visibility in mobile devices*/
+	
+	.tp-bgimg {
+	background: rgba(77, 77, 79, 0.72) url('../img/mob.jpg') no-repeat fixed center !important;
+}
+#mob_first, #mob_second, #mob_third, #mob_fourth { display : none; }
+
 
 .promo {
     width: 100%;
@@ -287,7 +294,7 @@ margin-top: 28px;
     animation-duration : 40s;
     animation-iteration-count : infinite;
     animation-timing-function : linear;
-	zoom : 0.7;
+	zoom : 0.8;
 }
 
 @keyframes move {
@@ -476,15 +483,38 @@ margin-top: 28px;
 /*------------------------------------------------------------------
 [16. 500 / #500]
 */
+@media (min-width: 500px) {
+  .mob_sel {
+	  display : none;
+  }
+}
+
+/*------------------------------------------------------------------
+[17. 500 / #500]
+*/
 @media (max-width: 500px) {
 html.ng-scope {height: 100%;}
 body.inner_page {background:none; height:100%; overflow:hidden;}
 body.inner_page .bg_parallax {background:none;}
+body.promo { display : none; }
 .place_li_cont .style_list img {
 display: block;
 float: none;
 margin: 30px auto;
 }
+
+.fp_icon {
+	font-size : 60px !important;
+	margin : 80px !important;
+}
+
+.tp-caption {
+    z-index: 1;
+    white-space: nowrap;
+    height: 100%;
+    background: rgba(77, 77, 79, 0.72) !important;
+}
+
 .content_li {
 margin-left: 0px;
 }
@@ -750,7 +780,8 @@ div.chat-messages {
     order: 1;
     flex: 1;
     overflow-x: hidden;
-    padding-bottom: 72px;
+    /*padding-bottom: 72px;*/
+	padding : 72px 0px;
     overflow: hidden;
 }
 
@@ -775,7 +806,7 @@ div.chat-messages {
 
 
 /*------------------------------------------------------------------
-[17. 400 / #400]
+[18. 400 / #400]
 */
 @media (max-width: 400px) {
     .top_promo_block {min-height: 560px;}
@@ -819,7 +850,7 @@ div.chat-messages {
     }
 }
 /*------------------------------------------------------------------
-[18. 350 / #350]
+[19. 350 / #350]
 */
 @media (max-width: 350px) {
     .icon_descr_block .cols .icons .ic {
@@ -853,9 +884,19 @@ text-align: center;
 }
 }
 
+/*------------------------------------------------------------------
+[20. 315 / #315]
+*/
+@media (max-width: 315px) {
+   .fp_icon {
+	font-size : 50px !important;
+	margin : 40px !important;
+}
+}
+
 
 /*------------------------------------------------------------------
-[19. 300 / #300]
+[20. 300 / #300]
 */
 @media (max-width: 300px) {
  .green_btn_header {display: none;}

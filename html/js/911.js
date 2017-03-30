@@ -559,6 +559,7 @@ swipeleft_handler= function () {
 		$(place_form[1]).on("swipeleft", upload_photo);
 		$(place_form[2]).on("swipeleft", inv_friends);
 		$(place_form[3]).on("swipeleft", send_iv);
+		$(place_form[4]).on("swipeleft", fetch_contact);
 		
 		function sign_up (event) {
 		var userName = validate1.getAttribute("name"),
@@ -588,18 +589,10 @@ swipeleft_handler= function () {
 		}
 		
 		function send_iv (event) {
-			if (!autorized3.classList.contains("none")) {
-      avataro.parentNode.removeChild(avataro);
-      upload_conatact.parentNode.removeChild(upload_conatact);
-      send_invite.parentNode.removeChild(send_invite);
-
-  span = "<span style='font-size:40px;font-weight:500;position:absolute;left:10%;'></span><p class='container avatari' id='take_text' style='text-align:center;'>Hey! would you like to try out this cool App with me. We can look out for each other and keep safe <a href='#'>Check it out</a></p>",
-  span_2 = "<a href='report_page.html' class='btn btn-success' id='first_btn'></a>";
-  span_3 = "";
-  form.insertAdjacentHTML("beforeend", span);
-  form.insertAdjacentHTML("beforeend", span_2); 
-  parg.replaceChild('<h3>Compose Message<span></span></h3>', head);
-  }
+			autorized5.classList.remove("none");
+		}
+		function fetch_contact (event) {
+			autorized6.classList.remove("none");
 		}
 	})
 	}
@@ -611,7 +604,9 @@ swiperight_handler = function () {
 			$(place_form[0]).on("swiperight", slide_back);
 			$(place_form[1]).on("swiperight", slide_back1);
 			$(place_form[2]).on("swiperight", slide_back2);
-			$(place_form[2]).on("swiperight", slide_back3);
+			$(place_form[3]).on("swiperight", slide_back3);
+			$(place_form[4]).on("swiperight", slide_back4);
+			$(place_form[5]).on("swiperight", slide_back5);
 			
 			function slide_back (event) {
 				   autorized.classList.add("none");
@@ -624,6 +619,12 @@ swiperight_handler = function () {
 			}
 			function slide_back3 (event) {
 				autorized4.classList.add("none");
+			}
+			function slide_back4 (event) {
+				autorized5.classList.add("none");
+			}
+			function slide_back5 (event) {
+				autorized6.classList.add("none");
 			}
 		});
 	  }

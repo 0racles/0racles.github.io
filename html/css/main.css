@@ -3015,6 +3015,8 @@ microphone
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 button.save {
+  display: block;
+  margin: 0px auto;
   background: #f00;
   padding: 0.5rem 0.75rem;
   font-size: 0.8rem;
@@ -3055,8 +3057,11 @@ canvas {
 }
 
 .form2 {
+	display: block;
+	margin: 1px auto;
     color :red;
     animation : mymove 5s infinite;
+	text-align: center;
 }
 
 @keyframes mymove {

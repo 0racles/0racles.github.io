@@ -1113,6 +1113,12 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 
 
 	@media only screen and (min-width: 480px) and (max-width: 767px) {
+		.tp-banner {
+			display : none;
+		}
+		/*.tp-bgimg {
+			background: rgba(77, 77, 79, 0.72) url('img/mob.jpg') no-repeat fixed center !important;
+		}*/
 		.tp-simpleresponsive  .button	{	padding:4px 8px 3px; line-height:25px !important; font-size:11px !important;font-weight:normal;	}
 		.tp-simpleresponsive  a.button { -webkit-transition: none; -moz-transition: none; -o-transition: none; -ms-transition: none;	 }
 
@@ -1120,6 +1126,13 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 	}
 
     @media only screen and (min-width: 0px) and (max-width: 479px) {
+		/*.tp-bgimg {
+			background: rgba(77, 77, 79, 0.72) url('img/mob.jpg') no-repeat fixed center !important;
+		}*/
+		tp-banner-container {
+			display : none;
+		}
+		
 		.tp-simpleresponsive  .button	{	padding:2px 5px 2px; line-height:20px !important; font-size:10px !important}
 		.tp-simpleresponsive  a.button { -webkit-transition: none; -moz-transition: none; -o-transition: none; -ms-transition: none;	 }
 	}

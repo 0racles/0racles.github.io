@@ -1,6 +1,6 @@
 this.addEventListener("install", function (event) {
     event.waitUntil(
-        caches.open('v3').then(function (cache) {
+        caches.open('v5').then(function (cache) {
          return cache.addAll([
           'index.html',
           'manifest.json',
@@ -41,6 +41,7 @@ this.addEventListener("install", function (event) {
           'img/avatar/ava_15.jpg',
           'img/avatar/ava_16.jpg',
           'img/c_logo.jpg',
+		  'img/mob.jpg',
           'font/fontawesome-webfont.woff?v=4.3.0',
           'font/fontawesome-webfont.woff2?v=4.3.0',
           'rs-plugin/font/revicons.woff?5510888',
@@ -59,7 +60,7 @@ this.addEventListener("install", function (event) {
     });
 
 this.addEventListener('activate', function(event) {
-  var cacheWhitelist = ['v3'];
+  var cacheWhitelist = ['v5'];
 
   event.waitUntil(
     caches.keys().then(function(keyList) {
