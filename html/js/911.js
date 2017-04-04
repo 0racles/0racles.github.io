@@ -425,8 +425,8 @@ asr = function () {
     /*setInterval(function () { mic.style.color = mic.style.color == 'black' ? 'red' : 'black'}, 200);
     setInterval(function () {mic.style.transform = mic.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200);*/
 	
-	setInterval(function () { mic_check_o.style.border = mic_check_o.style.borderColor == '5px solid #2f2' ? '10px solid #000' : '5px solid #2f2'}, 200);
-    setInterval(function () {mic_check_o.style.transform = mic_check_o.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200)
+	setInterval(function () { mic_check_o.style.border = mic_check_o.style.border == 'thin dotted #2f2' ? 'thick solid #000' : 'thin dotted #2f2'}, 100);
+    //setInterval(function () {mic_check_o.style.transform = mic_check_o.style.transform == 'rotate(360deg)' ? 'rotate(-360deg)' : 'rotate(360deg)'}, 200)
   }
   recognition.onresult = function (event) {
     var password = event.results[0][0].transcript;
@@ -637,10 +637,23 @@ remove_wrapper = function (cssSelector) {
 		}
 	},
 
+resource_loader = function () {
+	var ui_loader = document.querySelector(".ui-loader"),
+		selecta = document.querySelector(".selecta"),
+	    ui_first_el = ui_loader.firstElementChild,
+		ui_lastChild = ui_loader.lastElementChild;
+		if (ui_loader.hasChildNodes()){
+			ui_first_el.parentNode.removeChild(ui_first_el);
+			ui_lastChild.parentNode.removeChild(ui_lastChild);
+			$(ui_loader).hide();
+		}
+},
+
   init = function () {		
     for (i; i < go_btn.length; i++) {
     go_btn[i].addEventListener("click", open_settings);
   }
+    body.addEventListener("load", resource_loader, true);
     back[0].addEventListener("click", go_back);
     back[1].addEventListener("click", go_back2);
     back[2].addEventListener("click", go_back3);
